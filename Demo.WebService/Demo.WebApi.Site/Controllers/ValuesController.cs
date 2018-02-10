@@ -4,7 +4,7 @@ using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
 
-namespace WebServiceSite.Controllers
+namespace Demo.WebApi.Site.Controllers
 {
     [Route("api/[controller]")]
     public class ValuesController : Controller

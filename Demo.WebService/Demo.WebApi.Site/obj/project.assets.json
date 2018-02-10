@@ -12541,11 +12541,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\WorkPlace\\GitHub\\DotNetCore\\WebServiceSite\\WebServiceSite.csproj",
-      "projectName": "WebServiceSite",
-      "projectPath": "C:\\WorkPlace\\GitHub\\DotNetCore\\WebServiceSite\\WebServiceSite.csproj",
+      "projectUniqueName": "C:\\WorkPlace\\GitHub\\DotNetCore\\Demo.WebService\\Demo.WebApi.Site\\Demo.WebApi.Site.csproj",
+      "projectName": "Demo.WebApi.Site",
+      "projectPath": "C:\\WorkPlace\\GitHub\\DotNetCore\\Demo.WebService\\Demo.WebApi.Site\\Demo.WebApi.Site.csproj",
       "packagesPath": "C:\\Users\\pro11\\.nuget\\packages\\",
-      "outputPath": "C:\\WorkPlace\\GitHub\\DotNetCore\\WebServiceSite\\obj\\",
+      "outputPath": "C:\\WorkPlace\\GitHub\\DotNetCore\\Demo.WebService\\Demo.WebApi.Site\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"

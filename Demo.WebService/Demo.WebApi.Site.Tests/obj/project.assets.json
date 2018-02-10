@@ -5642,11 +5642,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\WorkPlace\\GitHub\\DotNetCore\\WebServiceSite\\WebServiceSite.Tests\\WebServiceSite.Tests.csproj",
-      "projectName": "WebServiceSite.Tests",
-      "projectPath": "C:\\WorkPlace\\GitHub\\DotNetCore\\WebServiceSite\\WebServiceSite.Tests\\WebServiceSite.Tests.csproj",
+      "projectUniqueName": "C:\\WorkPlace\\GitHub\\DotNetCore\\Demo.WebService\\Demo.WebApi.Site.Tests\\Demo.WebApi.Site.Tests.csproj",
+      "projectName": "Demo.WebApi.Site.Tests",
+      "projectPath": "C:\\WorkPlace\\GitHub\\DotNetCore\\Demo.WebService\\Demo.WebApi.Site.Tests\\Demo.WebApi.Site.Tests.csproj",
       "packagesPath": "C:\\Users\\pro11\\.nuget\\packages\\",
-      "outputPath": "C:\\WorkPlace\\GitHub\\DotNetCore\\WebServiceSite\\WebServiceSite.Tests\\obj\\",
+      "outputPath": "C:\\WorkPlace\\GitHub\\DotNetCore\\Demo.WebService\\Demo.WebApi.Site.Tests\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"

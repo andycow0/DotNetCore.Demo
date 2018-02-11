@@ -7,7 +7,7 @@ namespace Demo.BuissinessLayer
     {
         public NorthwindDbcontext(DbContextOptions<NorthwindDbcontext> options) : base(options)
         {
-            
+
         }
     }
 }

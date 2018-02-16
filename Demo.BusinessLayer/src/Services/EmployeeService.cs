@@ -1,12 +1,18 @@
-public class EmployeeService
-{
-    public EmployeeService()
-    {
-        
-    }
 
-    public bool IsOK()
+namespace Demo.BusinessLayer.Services
+{
+    using src.Interfaces;
+
+    public class EmployeeService : IEmployeeService
     {
-        return false;
+        public EmployeeService()
+        {
+
+        }
+
+        public bool IsOK()
+        {
+            return false;
+        }
     }
 }

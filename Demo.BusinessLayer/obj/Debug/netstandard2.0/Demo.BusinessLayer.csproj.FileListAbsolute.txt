@@ -1,8 +1,0 @@
-C:\WorkPlace\GitHub\DotNetCore\Demo.BusinessLayer\bin\Debug\netstandard2.0\Demo.BusinessLayer.deps.json
-C:\WorkPlace\GitHub\DotNetCore\Demo.BusinessLayer\bin\Debug\netstandard2.0\Demo.BusinessLayer.dll
-C:\WorkPlace\GitHub\DotNetCore\Demo.BusinessLayer\bin\Debug\netstandard2.0\Demo.BusinessLayer.pdb
-C:\WorkPlace\GitHub\DotNetCore\Demo.BusinessLayer\obj\Debug\netstandard2.0\Demo.BusinessLayer.csproj.CoreCompileInputs.cache
-C:\WorkPlace\GitHub\DotNetCore\Demo.BusinessLayer\obj\Debug\netstandard2.0\Demo.BusinessLayer.AssemblyInfoInputs.cache
-C:\WorkPlace\GitHub\DotNetCore\Demo.BusinessLayer\obj\Debug\netstandard2.0\Demo.BusinessLayer.AssemblyInfo.cs
-C:\WorkPlace\GitHub\DotNetCore\Demo.BusinessLayer\obj\Debug\netstandard2.0\Demo.BusinessLayer.dll
-C:\WorkPlace\GitHub\DotNetCore\Demo.BusinessLayer\obj\Debug\netstandard2.0\Demo.BusinessLayer.pdb

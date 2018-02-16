@@ -1,0 +1,15 @@
+C:\WorkPlace\dotnetCore\DotNetCore.Demo\Demo.BusinessLayer\Demo.BusinessLayer.Tests\bin\Debug\netcoreapp2.0\NUnit3.TestAdapter.dll
+C:\WorkPlace\dotnetCore\DotNetCore.Demo\Demo.BusinessLayer\Demo.BusinessLayer.Tests\bin\Debug\netcoreapp2.0\nunit.engine.netstandard.dll
+C:\WorkPlace\dotnetCore\DotNetCore.Demo\Demo.BusinessLayer\Demo.BusinessLayer.Tests\bin\Debug\netcoreapp2.0\Mono.Cecil.dll
+C:\WorkPlace\dotnetCore\DotNetCore.Demo\Demo.BusinessLayer\Demo.BusinessLayer.Tests\bin\Debug\netcoreapp2.0\Demo.BusinessLayer.Tests.deps.json
+C:\WorkPlace\dotnetCore\DotNetCore.Demo\Demo.BusinessLayer\Demo.BusinessLayer.Tests\bin\Debug\netcoreapp2.0\Demo.BusinessLayer.Tests.runtimeconfig.json
+C:\WorkPlace\dotnetCore\DotNetCore.Demo\Demo.BusinessLayer\Demo.BusinessLayer.Tests\bin\Debug\netcoreapp2.0\Demo.BusinessLayer.Tests.runtimeconfig.dev.json
+C:\WorkPlace\dotnetCore\DotNetCore.Demo\Demo.BusinessLayer\Demo.BusinessLayer.Tests\bin\Debug\netcoreapp2.0\Demo.BusinessLayer.Tests.dll
+C:\WorkPlace\dotnetCore\DotNetCore.Demo\Demo.BusinessLayer\Demo.BusinessLayer.Tests\bin\Debug\netcoreapp2.0\Demo.BusinessLayer.Tests.pdb
+C:\WorkPlace\dotnetCore\DotNetCore.Demo\Demo.BusinessLayer\Demo.BusinessLayer.Tests\obj\Debug\netcoreapp2.0\Demo.BusinessLayer.Tests.csproj.CoreCompileInputs.cache
+C:\WorkPlace\dotnetCore\DotNetCore.Demo\Demo.BusinessLayer\Demo.BusinessLayer.Tests\obj\Debug\netcoreapp2.0\Demo.BusinessLayer.Tests.AssemblyInfoInputs.cache
+C:\WorkPlace\dotnetCore\DotNetCore.Demo\Demo.BusinessLayer\Demo.BusinessLayer.Tests\obj\Debug\netcoreapp2.0\Demo.BusinessLayer.Tests.AssemblyInfo.cs
+C:\WorkPlace\dotnetCore\DotNetCore.Demo\Demo.BusinessLayer\Demo.BusinessLayer.Tests\obj\Debug\netcoreapp2.0\Demo.BusinessLayer.Tests.dll
+C:\WorkPlace\dotnetCore\DotNetCore.Demo\Demo.BusinessLayer\Demo.BusinessLayer.Tests\obj\Debug\netcoreapp2.0\Demo.BusinessLayer.Tests.pdb
+C:\WorkPlace\dotnetCore\DotNetCore.Demo\Demo.BusinessLayer\Demo.BusinessLayer.Tests\bin\Debug\netcoreapp2.0\Demo.BusinessLayer.dll
+C:\WorkPlace\dotnetCore\DotNetCore.Demo\Demo.BusinessLayer\Demo.BusinessLayer.Tests\bin\Debug\netcoreapp2.0\Demo.BusinessLayer.pdb

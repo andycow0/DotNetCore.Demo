@@ -1,0 +1,5 @@
+{
+    "ConnectionStrings": {
+      "NothorwindDatabase": "Server=DESKTOP-CP9V84E\\SQLEXPRESS;Initial Catalog=NORTHWND;user id=sa;password=s0937s;Persist Security Info=true;"
+    }
+  }

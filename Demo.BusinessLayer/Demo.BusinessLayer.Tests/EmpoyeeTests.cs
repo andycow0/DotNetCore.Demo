@@ -5,7 +5,7 @@ using src.Interfaces;
 namespace Demo.BusinessLayer.Services.Tests
 {
     [TestFixture]
-    public class Tests
+    public class EmpoyeeTests
     {
         private IEmployeeService _EmployeeService { get; set; }
 

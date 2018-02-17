@@ -1,7 +1,9 @@
 ﻿using System;
+using System.IO;
 using Demo.BusinessLayer.Models;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.Extensions.Configuration;
 
 namespace Demo.BusinessLayer.DbContexts
 {
@@ -21,12 +23,32 @@ namespace Demo.BusinessLayer.DbContexts
         public virtual DbSet<Suppliers> Suppliers { get; set; }
         public virtual DbSet<Territories> Territories { get; set; }
 
+        #region ctor
+
+        // public DemoDbContext() : base()
+        // {
+
+        // }
+        // public DemoDbContext(DbContextOptions options) : base(options)
+        // {
+        // }
+
+        #endregion
+
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
             if (!optionsBuilder.IsConfigured)
             {
-// #warning To protect potentially sensitive information in your connection string, you should move it out of source code. See http://go.microsoft.com/fwlink/?LinkId=723263 for guidance on storing connection strings.
-//                 optionsBuilder.UseSqlServer(@"Server=DESKTOP-CP9V84E\SQLEXPRESS;Initial Catalog=NORTHWND;user id=sa;password=s0937s;Persist Security Info=true;");
+                // #warning To protect potentially sensitive information in your connection string, you should move it out of source code. See http://go.microsoft.com/fwlink/?LinkId=723263 for guidance on storing connection strings.
+                //optionsBuilder.UseSqlServer(@"Server=DESKTOP-CP9V84E\SQLEXPRESS;Initial Catalog=NORTHWND;user id=sa;password=s0937s;Persist Security Info=true;");
+                var configuration = new ConfigurationBuilder()
+                                    .SetBasePath(AppDomain.CurrentDomain.BaseDirectory)
+                                    .AddJsonFile("appsettings.json")
+                                    .Build();
+
+                var conn = configuration.GetConnectionString("NothorwindDatabase");
+
+                optionsBuilder.UseSqlServer(conn);
             }
         }
 

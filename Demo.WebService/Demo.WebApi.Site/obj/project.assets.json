@@ -12535,23 +12535,23 @@
     ]
   },
   "packageFolders": {
-    "C:\\Users\\pro11\\.nuget\\packages\\": {},
+    "C:\\Users\\andyc\\.nuget\\packages\\": {},
     "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\WorkPlace\\GitHub\\DotNetCore\\Demo.WebService\\Demo.WebApi.Site\\Demo.WebApi.Site.csproj",
+      "projectUniqueName": "C:\\WorkPlace\\dotnetCore\\DotNetCore.Demo\\Demo.WebService\\Demo.WebApi.Site\\Demo.WebApi.Site.csproj",
       "projectName": "Demo.WebApi.Site",
-      "projectPath": "C:\\WorkPlace\\GitHub\\DotNetCore\\Demo.WebService\\Demo.WebApi.Site\\Demo.WebApi.Site.csproj",
-      "packagesPath": "C:\\Users\\pro11\\.nuget\\packages\\",
-      "outputPath": "C:\\WorkPlace\\GitHub\\DotNetCore\\Demo.WebService\\Demo.WebApi.Site\\obj\\",
+      "projectPath": "C:\\WorkPlace\\dotnetCore\\DotNetCore.Demo\\Demo.WebService\\Demo.WebApi.Site\\Demo.WebApi.Site.csproj",
+      "packagesPath": "C:\\Users\\andyc\\.nuget\\packages\\",
+      "outputPath": "C:\\WorkPlace\\dotnetCore\\DotNetCore.Demo\\Demo.WebService\\Demo.WebApi.Site\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
       ],
       "configFilePaths": [
-        "C:\\Users\\pro11\\AppData\\Roaming\\NuGet\\NuGet.Config"
+        "C:\\Users\\andyc\\AppData\\Roaming\\NuGet\\NuGet.Config"
       ],
       "originalTargetFrameworks": [
         "netcoreapp2.0"

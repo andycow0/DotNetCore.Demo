@@ -8,3 +8,15 @@ C:\WorkPlace\GitHub\DotNetCore\Demo.WebService\Demo.WebApi.Site\obj\Debug\netcor
 C:\WorkPlace\GitHub\DotNetCore\Demo.WebService\Demo.WebApi.Site\obj\Debug\netcoreapp2.0\Demo.WebApi.Site.AssemblyInfo.cs
 C:\WorkPlace\GitHub\DotNetCore\Demo.WebService\Demo.WebApi.Site\obj\Debug\netcoreapp2.0\Demo.WebApi.Site.dll
 C:\WorkPlace\GitHub\DotNetCore\Demo.WebService\Demo.WebApi.Site\obj\Debug\netcoreapp2.0\Demo.WebApi.Site.pdb
+C:\WorkPlace\dotnetCore\DotNetCore.Demo\Demo.WebService\Demo.WebApi.Site\bin\Debug\netcoreapp2.0\Demo.WebApi.Site.deps.json
+C:\WorkPlace\dotnetCore\DotNetCore.Demo\Demo.WebService\Demo.WebApi.Site\bin\Debug\netcoreapp2.0\Demo.WebApi.Site.runtimeconfig.json
+C:\WorkPlace\dotnetCore\DotNetCore.Demo\Demo.WebService\Demo.WebApi.Site\bin\Debug\netcoreapp2.0\Demo.WebApi.Site.runtimeconfig.dev.json
+C:\WorkPlace\dotnetCore\DotNetCore.Demo\Demo.WebService\Demo.WebApi.Site\bin\Debug\netcoreapp2.0\Demo.WebApi.Site.dll
+C:\WorkPlace\dotnetCore\DotNetCore.Demo\Demo.WebService\Demo.WebApi.Site\bin\Debug\netcoreapp2.0\Demo.WebApi.Site.pdb
+C:\WorkPlace\dotnetCore\DotNetCore.Demo\Demo.WebService\Demo.WebApi.Site\obj\Debug\netcoreapp2.0\Demo.WebApi.Site.csproj.CoreCompileInputs.cache
+C:\WorkPlace\dotnetCore\DotNetCore.Demo\Demo.WebService\Demo.WebApi.Site\obj\Debug\netcoreapp2.0\Demo.WebApi.Site.AssemblyInfoInputs.cache
+C:\WorkPlace\dotnetCore\DotNetCore.Demo\Demo.WebService\Demo.WebApi.Site\obj\Debug\netcoreapp2.0\Demo.WebApi.Site.AssemblyInfo.cs
+C:\WorkPlace\dotnetCore\DotNetCore.Demo\Demo.WebService\Demo.WebApi.Site\obj\Debug\netcoreapp2.0\Demo.WebApi.Site.dll
+C:\WorkPlace\dotnetCore\DotNetCore.Demo\Demo.WebService\Demo.WebApi.Site\obj\Debug\netcoreapp2.0\Demo.WebApi.Site.pdb
+C:\WorkPlace\dotnetCore\DotNetCore.Demo\Demo.WebService\Demo.WebApi.Site\bin\Debug\netcoreapp2.0\Demo.BusinessLayer.dll
+C:\WorkPlace\dotnetCore\DotNetCore.Demo\Demo.WebService\Demo.WebApi.Site\bin\Debug\netcoreapp2.0\Demo.BusinessLayer.pdb

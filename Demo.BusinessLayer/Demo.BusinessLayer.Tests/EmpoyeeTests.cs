@@ -32,5 +32,17 @@ namespace Demo.BusinessLayer.Services.Tests
 
             Assert.IsNotNull(result);
         }
+
+
+        [Test]
+        public void NewEmpolyeeTest()
+        {
+            // arrange
+            var employee = new Models.Employees() { FirstName = "Test", LastName = "Lian", City = "Taipei" };
+
+            var result = this._EmployeeService.AddRecord(employee);
+
+            Assert.IsTrue(result);
+        }
     }
 }

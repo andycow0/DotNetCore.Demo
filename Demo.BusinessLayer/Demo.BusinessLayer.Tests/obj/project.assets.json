@@ -9153,11 +9153,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\WorkPlace\\dotnetCore\\DotNetCore.Demo\\Demo.BusinessLayer\\Demo.BusinessLayer.Tests\\Demo.BusinessLayer.Tests.csproj",
+      "projectUniqueName": "c:\\WorkPlace\\dotnetCore\\DotNetCore.Demo\\Demo.BusinessLayer\\Demo.BusinessLayer.Tests\\Demo.BusinessLayer.Tests.csproj",
       "projectName": "Demo.BusinessLayer.Tests",
-      "projectPath": "C:\\WorkPlace\\dotnetCore\\DotNetCore.Demo\\Demo.BusinessLayer\\Demo.BusinessLayer.Tests\\Demo.BusinessLayer.Tests.csproj",
+      "projectPath": "c:\\WorkPlace\\dotnetCore\\DotNetCore.Demo\\Demo.BusinessLayer\\Demo.BusinessLayer.Tests\\Demo.BusinessLayer.Tests.csproj",
       "packagesPath": "C:\\Users\\andyc\\.nuget\\packages\\",
-      "outputPath": "C:\\WorkPlace\\dotnetCore\\DotNetCore.Demo\\Demo.BusinessLayer\\Demo.BusinessLayer.Tests\\obj\\",
+      "outputPath": "c:\\WorkPlace\\dotnetCore\\DotNetCore.Demo\\Demo.BusinessLayer\\Demo.BusinessLayer.Tests\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
@@ -9174,8 +9174,8 @@
       "frameworks": {
         "netcoreapp2.0": {
           "projectReferences": {
-            "C:\\WorkPlace\\dotnetCore\\DotNetCore.Demo\\Demo.BusinessLayer\\src\\Demo.BusinessLayer.csproj": {
-              "projectPath": "C:\\WorkPlace\\dotnetCore\\DotNetCore.Demo\\Demo.BusinessLayer\\src\\Demo.BusinessLayer.csproj"
+            "c:\\WorkPlace\\dotnetCore\\DotNetCore.Demo\\Demo.BusinessLayer\\src\\Demo.BusinessLayer.csproj": {
+              "projectPath": "c:\\WorkPlace\\dotnetCore\\DotNetCore.Demo\\Demo.BusinessLayer\\src\\Demo.BusinessLayer.csproj"
             }
           }
         }

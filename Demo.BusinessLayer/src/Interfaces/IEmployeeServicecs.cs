@@ -8,5 +8,6 @@ namespace src.Interfaces
          bool IsOK();
 
          IEnumerable<Employees> GetEmployees();
+         bool AddRecord(Employees employee);
     }
 }

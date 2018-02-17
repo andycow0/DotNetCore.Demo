@@ -15,6 +15,22 @@ namespace Demo.BusinessLayer.Services
             this._Conetxt = conetxt;
         }
 
+        public bool AddRecord(Employees employee)
+        {
+            this._Conetxt.Employees.Add(employee);
+
+            var recordNums = this._Conetxt.SaveChanges();
+
+            if (recordNums > 0)
+            {
+                return true;
+            }
+            else
+            {
+                return false;
+            }
+        }
+
         public IEnumerable<Employees> GetEmployees()
         {
             return this._Conetxt.Employees.ToList();

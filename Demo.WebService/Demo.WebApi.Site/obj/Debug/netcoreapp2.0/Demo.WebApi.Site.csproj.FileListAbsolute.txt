@@ -18,3 +18,8 @@ C:\WorkPlace\dotnetCore\DotNetCore.Demo\Demo.WebService\Demo.WebApi.Site\obj\Deb
 C:\WorkPlace\dotnetCore\DotNetCore.Demo\Demo.WebService\Demo.WebApi.Site\obj\Debug\netcoreapp2.0\Demo.WebApi.Site.AssemblyInfo.cs
 C:\WorkPlace\dotnetCore\DotNetCore.Demo\Demo.WebService\Demo.WebApi.Site\obj\Debug\netcoreapp2.0\Demo.WebApi.Site.dll
 C:\WorkPlace\dotnetCore\DotNetCore.Demo\Demo.WebService\Demo.WebApi.Site\obj\Debug\netcoreapp2.0\Demo.WebApi.Site.pdb
+<<<<<<< HEAD
+=======
+C:\WorkPlace\dotnetCore\DotNetCore.Demo\Demo.WebService\Demo.WebApi.Site\bin\Debug\netcoreapp2.0\Demo.BusinessLayer.dll
+C:\WorkPlace\dotnetCore\DotNetCore.Demo\Demo.WebService\Demo.WebApi.Site\bin\Debug\netcoreapp2.0\Demo.BusinessLayer.pdb
+>>>>>>> Demo.WebService

@@ -14,3 +14,4 @@ C:\WorkPlace\dotnetCore\DotNetCore.Demo\Demo.BusinessLayer\src\obj\Debug\netcore
 C:\WorkPlace\dotnetCore\DotNetCore.Demo\Demo.BusinessLayer\src\obj\Debug\netcoreapp2.0\Demo.BusinessLayer.AssemblyInfo.cs
 C:\WorkPlace\dotnetCore\DotNetCore.Demo\Demo.BusinessLayer\src\obj\Debug\netcoreapp2.0\Demo.BusinessLayer.dll
 C:\WorkPlace\dotnetCore\DotNetCore.Demo\Demo.BusinessLayer\src\obj\Debug\netcoreapp2.0\Demo.BusinessLayer.pdb
+C:\WorkPlace\dotnetCore\DotNetCore.Demo\Demo.BusinessLayer\src\bin\Debug\netcoreapp2.0\appsettings.json

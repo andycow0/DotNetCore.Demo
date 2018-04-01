@@ -8,3 +8,13 @@ C:\WorkPlace\GitHub\DotNetCore\Demo.WebSite\obj\Debug\netcoreapp2.0\Demo.WebSite
 C:\WorkPlace\GitHub\DotNetCore\Demo.WebSite\obj\Debug\netcoreapp2.0\Demo.WebSite.AssemblyInfo.cs
 C:\WorkPlace\GitHub\DotNetCore\Demo.WebSite\obj\Debug\netcoreapp2.0\Demo.WebSite.dll
 C:\WorkPlace\GitHub\DotNetCore\Demo.WebSite\obj\Debug\netcoreapp2.0\Demo.WebSite.pdb
+C:\WorkPlace\dotnetCore\DotNetCore.Demo\Demo.WebSite\bin\Debug\netcoreapp2.0\Demo.WebSite.deps.json
+C:\WorkPlace\dotnetCore\DotNetCore.Demo\Demo.WebSite\bin\Debug\netcoreapp2.0\Demo.WebSite.runtimeconfig.json
+C:\WorkPlace\dotnetCore\DotNetCore.Demo\Demo.WebSite\bin\Debug\netcoreapp2.0\Demo.WebSite.runtimeconfig.dev.json
+C:\WorkPlace\dotnetCore\DotNetCore.Demo\Demo.WebSite\bin\Debug\netcoreapp2.0\Demo.WebSite.dll
+C:\WorkPlace\dotnetCore\DotNetCore.Demo\Demo.WebSite\bin\Debug\netcoreapp2.0\Demo.WebSite.pdb
+C:\WorkPlace\dotnetCore\DotNetCore.Demo\Demo.WebSite\obj\Debug\netcoreapp2.0\Demo.WebSite.csproj.CoreCompileInputs.cache
+C:\WorkPlace\dotnetCore\DotNetCore.Demo\Demo.WebSite\obj\Debug\netcoreapp2.0\Demo.WebSite.AssemblyInfoInputs.cache
+C:\WorkPlace\dotnetCore\DotNetCore.Demo\Demo.WebSite\obj\Debug\netcoreapp2.0\Demo.WebSite.AssemblyInfo.cs
+C:\WorkPlace\dotnetCore\DotNetCore.Demo\Demo.WebSite\obj\Debug\netcoreapp2.0\Demo.WebSite.dll
+C:\WorkPlace\dotnetCore\DotNetCore.Demo\Demo.WebSite\obj\Debug\netcoreapp2.0\Demo.WebSite.pdb

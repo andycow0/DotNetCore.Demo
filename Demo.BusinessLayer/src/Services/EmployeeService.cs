@@ -5,14 +5,20 @@ namespace Demo.BusinessLayer.Services
     using System.Linq;
     using Demo.BusinessLayer.DbContexts;
     using Demo.BusinessLayer.Models;
+    using Microsoft.Extensions.Logging;
     using src.Interfaces;
 
     public class EmployeeService : IEmployeeService
     {
         private DemoDbContext _Conetxt;
+        private readonly ILogger<EmployeeService> _logger;
         public EmployeeService(DemoDbContext conetxt)
         {
             this._Conetxt = conetxt;
+        }
+        public EmployeeService(ILogger<EmployeeService> logger)
+        {
+            this._logger = logger;
         }
 
         public bool AddRecord(Employees employee)

@@ -14,3 +14,4 @@ C:\WorkPlace\dotnetCore\DotNetCore.Demo\Demo.BusinessLayer\Demo.BusinessLayer.Te
 C:\WorkPlace\dotnetCore\DotNetCore.Demo\Demo.BusinessLayer\Demo.BusinessLayer.Tests\bin\Debug\netcoreapp2.0\Demo.BusinessLayer.dll
 C:\WorkPlace\dotnetCore\DotNetCore.Demo\Demo.BusinessLayer\Demo.BusinessLayer.Tests\bin\Debug\netcoreapp2.0\Demo.BusinessLayer.pdb
 C:\WorkPlace\dotnetCore\DotNetCore.Demo\Demo.BusinessLayer\Demo.BusinessLayer.Tests\bin\Debug\netcoreapp2.0\appsettings.json
+C:\WorkPlace\dotnetCore\DotNetCore.Demo\Demo.BusinessLayer\Demo.BusinessLayer.Tests\bin\Debug\netcoreapp2.0\Configurations\log4net.config

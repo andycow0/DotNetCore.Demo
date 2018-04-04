@@ -3133,7 +3133,7 @@
       ]
     },
     "Microsoft.NETCore.Platforms/2.0.1": {
-      "sha512": "Rgwturmal/A4iD0kqWu0NYAjz7hBsioJGTCg3KzaKG9+r9jN7qbhX04L/AQvypaPyMxFfcWUelSby4ZKWxMoEA==",
+      "sha512": "/Kuy9nQ167n5ABQy787zge7LWvXaV37KC4aYSWAgv0Ptzp8Exn73dEZR/1JnY8R9rXayUTe7K28B3OQSjCx6iA==",
       "type": "package",
       "path": "microsoft.netcore.platforms/2.0.1",
       "files": [
@@ -7602,23 +7602,23 @@
     ]
   },
   "packageFolders": {
-    "C:\\Users\\andyc\\.nuget\\packages\\": {},
+    "C:\\Users\\pro11\\.nuget\\packages\\": {},
     "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "c:\\WorkPlace\\dotnetCore\\DotNetCore.Demo\\Demo.BusinessLayer\\src\\Demo.BusinessLayer.csproj",
+      "projectUniqueName": "C:\\WorkPlace\\GitHub\\DotNetCore.Demo\\Demo.BusinessLayer\\src\\Demo.BusinessLayer.csproj",
       "projectName": "Demo.BusinessLayer",
-      "projectPath": "c:\\WorkPlace\\dotnetCore\\DotNetCore.Demo\\Demo.BusinessLayer\\src\\Demo.BusinessLayer.csproj",
-      "packagesPath": "C:\\Users\\andyc\\.nuget\\packages\\",
-      "outputPath": "c:\\WorkPlace\\dotnetCore\\DotNetCore.Demo\\Demo.BusinessLayer\\src\\obj\\",
+      "projectPath": "C:\\WorkPlace\\GitHub\\DotNetCore.Demo\\Demo.BusinessLayer\\src\\Demo.BusinessLayer.csproj",
+      "packagesPath": "C:\\Users\\pro11\\.nuget\\packages\\",
+      "outputPath": "C:\\WorkPlace\\GitHub\\DotNetCore.Demo\\Demo.BusinessLayer\\src\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
       ],
       "configFilePaths": [
-        "C:\\Users\\andyc\\AppData\\Roaming\\NuGet\\NuGet.Config"
+        "C:\\Users\\pro11\\AppData\\Roaming\\NuGet\\NuGet.Config"
       ],
       "originalTargetFrameworks": [
         "netcoreapp2.0"

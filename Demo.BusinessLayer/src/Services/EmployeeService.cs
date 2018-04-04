@@ -11,15 +11,15 @@ namespace Demo.BusinessLayer.Services
     public class EmployeeService : IEmployeeService
     {
         private DemoDbContext _Conetxt;
-        private readonly ILogger<EmployeeService> _logger;
+        // private readonly ILogger<EmployeeService> _logger;
         public EmployeeService(DemoDbContext conetxt)
         {
             this._Conetxt = conetxt;
         }
-        public EmployeeService(ILogger<EmployeeService> logger)
-        {
-            this._logger = logger;
-        }
+        // public EmployeeService(ILogger<EmployeeService> logger, DemoDbContext conetxt)
+        // {
+        //     this._logger = logger;
+        // }
 
         public bool AddRecord(Employees employee)
         {

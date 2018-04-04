@@ -25,13 +25,13 @@ namespace Demo.BusinessLayer.DbContexts
 
         #region ctor
 
-        // public DemoDbContext() : base()
-        // {
+        public DemoDbContext() : base()
+        {
 
-        // }
-        // public DemoDbContext(DbContextOptions options) : base(options)
-        // {
-        // }
+        }
+        public DemoDbContext(DbContextOptions options) : base(options)
+        {
+        }
 
         #endregion
 

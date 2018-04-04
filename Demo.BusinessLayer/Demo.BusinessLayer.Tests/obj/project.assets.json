@@ -9924,23 +9924,23 @@
     ]
   },
   "packageFolders": {
-    "C:\\Users\\andyc\\.nuget\\packages\\": {},
+    "C:\\Users\\pro11\\.nuget\\packages\\": {},
     "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "c:\\WorkPlace\\dotnetCore\\DotNetCore.Demo\\Demo.BusinessLayer\\Demo.BusinessLayer.Tests\\Demo.BusinessLayer.Tests.csproj",
+      "projectUniqueName": "c:\\WorkPlace\\GitHub\\DotNetCore.Demo\\Demo.BusinessLayer\\Demo.BusinessLayer.Tests\\Demo.BusinessLayer.Tests.csproj",
       "projectName": "Demo.BusinessLayer.Tests",
-      "projectPath": "c:\\WorkPlace\\dotnetCore\\DotNetCore.Demo\\Demo.BusinessLayer\\Demo.BusinessLayer.Tests\\Demo.BusinessLayer.Tests.csproj",
-      "packagesPath": "C:\\Users\\andyc\\.nuget\\packages\\",
-      "outputPath": "c:\\WorkPlace\\dotnetCore\\DotNetCore.Demo\\Demo.BusinessLayer\\Demo.BusinessLayer.Tests\\obj\\",
+      "projectPath": "c:\\WorkPlace\\GitHub\\DotNetCore.Demo\\Demo.BusinessLayer\\Demo.BusinessLayer.Tests\\Demo.BusinessLayer.Tests.csproj",
+      "packagesPath": "C:\\Users\\pro11\\.nuget\\packages\\",
+      "outputPath": "c:\\WorkPlace\\GitHub\\DotNetCore.Demo\\Demo.BusinessLayer\\Demo.BusinessLayer.Tests\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
       ],
       "configFilePaths": [
-        "C:\\Users\\andyc\\AppData\\Roaming\\NuGet\\NuGet.Config"
+        "C:\\Users\\pro11\\AppData\\Roaming\\NuGet\\NuGet.Config"
       ],
       "originalTargetFrameworks": [
         "netcoreapp2.0"
@@ -9951,8 +9951,8 @@
       "frameworks": {
         "netcoreapp2.0": {
           "projectReferences": {
-            "c:\\WorkPlace\\dotnetCore\\DotNetCore.Demo\\Demo.BusinessLayer\\src\\Demo.BusinessLayer.csproj": {
-              "projectPath": "c:\\WorkPlace\\dotnetCore\\DotNetCore.Demo\\Demo.BusinessLayer\\src\\Demo.BusinessLayer.csproj"
+            "c:\\WorkPlace\\GitHub\\DotNetCore.Demo\\Demo.BusinessLayer\\src\\Demo.BusinessLayer.csproj": {
+              "projectPath": "c:\\WorkPlace\\GitHub\\DotNetCore.Demo\\Demo.BusinessLayer\\src\\Demo.BusinessLayer.csproj"
             }
           }
         }

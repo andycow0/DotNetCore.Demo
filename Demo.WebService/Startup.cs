@@ -10,6 +10,8 @@ using Microsoft.Extensions.Logging;
 using Microsoft.Extensions.Options;
 using Demo.BusinessLayer.DbContexts;
 using Microsoft.EntityFrameworkCore;
+using src.Interfaces;
+using Demo.BusinessLayer.Services;
 
 namespace Demo.WebService
 {
@@ -17,10 +19,10 @@ namespace Demo.WebService
     {
         public Startup(IConfiguration configuration)
         {
-            Configuration = configuration;
+            _Configuration = configuration;
         }
 
-        public IConfiguration Configuration { get; }
+        public IConfiguration _Configuration;// { get; }
 
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
@@ -28,8 +30,9 @@ namespace Demo.WebService
             services.AddMvc();
             services.AddDbContext<DemoDbContext>(options =>
             {
-                options.UseSqlServer(Configuration.GetConnectionString("NothorwindDatabase"));
+                options.UseSqlServer(_Configuration.GetConnectionString("NothorwindDatabase"));
             });
+            services.AddScoped<IEmployeeService, EmployeeService>();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.

@@ -29,7 +29,7 @@ namespace Demo.BusinessLayer.DbContexts
         {
 
         }
-        public DemoDbContext(DbContextOptions options) : base(options)
+        public DemoDbContext(DbContextOptions<DemoDbContext> options) : base(options)
         {
         }
 

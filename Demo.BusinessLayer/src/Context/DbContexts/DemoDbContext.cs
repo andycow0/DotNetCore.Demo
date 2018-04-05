@@ -43,7 +43,8 @@ namespace Demo.BusinessLayer.DbContexts
                 //optionsBuilder.UseSqlServer(@"Server=DESKTOP-CP9V84E\SQLEXPRESS;Initial Catalog=NORTHWND;user id=sa;password=s0937s;Persist Security Info=true;");
                 var configuration = new ConfigurationBuilder()
                                     .SetBasePath(AppDomain.CurrentDomain.BaseDirectory)
-                                    .AddJsonFile("appsettings.json")
+                                    // .AddJsonFile("appsettings.json")
+                                    .AddJsonFile("Configurations\\DBConnections.json")
                                     .Build();
 
                 var conn = configuration.GetConnectionString("NothorwindDatabase");

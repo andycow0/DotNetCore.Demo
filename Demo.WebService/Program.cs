@@ -19,9 +19,11 @@ namespace Demo.WebService
 
         public static IWebHost BuildWebHost(string[] args) =>
             WebHost.CreateDefaultBuilder(args)
-            .ConfigureAppConfiguration((webHostBuilder, configurationBinder) =>
+            .ConfigureAppConfiguration((webHostBuilder, config) =>
             {
-                configurationBinder.AddJsonFile("appsettings.json", optional: true);
+                var env = webHostBuilder.HostingEnvironment;
+                config//.AddJsonFile($"\\Configuration\\appsettings.json", optional: true, reloadOnChange: true)
+                      .AddJsonFile($"\\Configuration\\appsettings.{env.EnvironmentName}.json", optional: true, reloadOnChange: true);
             })
             .UseStartup<Startup>()
             .Build();

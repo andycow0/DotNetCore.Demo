@@ -22,8 +22,9 @@
   </ItemGroup>
 
   <ItemGroup>
-      <None Include="appsettings.json" CopyToOutputDirectory="Always" />
-      <None Include="Configurations\log4net.config" CopyToOutputDirectory="Always" />
+      <!-- <None Include="appsettings.json" CopyToOutputDirectory="Always" />
+      <None Include="Configurations\log4net.config" CopyToOutputDirectory="Always" /> -->
+       <None Include="Configurations\*" CopyToOutputDirectory="Always" /> 
   </ItemGroup>
 
 </Project>

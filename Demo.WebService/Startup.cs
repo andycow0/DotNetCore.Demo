@@ -12,6 +12,7 @@ using Demo.BusinessLayer.DbContexts;
 using Microsoft.EntityFrameworkCore;
 using src.Interfaces;
 using Demo.BusinessLayer.Services;
+using Demo.BusinessLayer.Interfaces;
 
 namespace Demo.WebService
 {
@@ -33,6 +34,7 @@ namespace Demo.WebService
                 options.UseSqlServer(_Configuration.GetConnectionString("NothorwindDatabase"));
             });
             services.AddScoped<IEmployeeService, EmployeeService>();
+            services.AddScoped<IAccountService, AccountService>();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.

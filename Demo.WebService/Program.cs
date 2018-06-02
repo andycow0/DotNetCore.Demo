@@ -22,8 +22,11 @@ namespace Demo.WebService
             .ConfigureAppConfiguration((webHostBuilder, config) =>
             {
                 var env = webHostBuilder.HostingEnvironment;
-                config//.AddJsonFile($"\\Configuration\\appsettings.json", optional: true, reloadOnChange: true)
-                      .AddJsonFile($"\\Configuration\\appsettings.{env.EnvironmentName}.json", optional: true, reloadOnChange: true);
+                config.SetBasePath(Path.Combine(env.ContentRootPath, "Configurations"))
+                        .AddJsonFile("DBConnections.json", optional: true, reloadOnChange: true)
+                        .AddJsonFile("appsettings.json", optional: true, reloadOnChange: true);
+                      //.AddJsonFile($"\\Configuration\\appsettings.{env.EnvironmentName}.json", optional: true, reloadOnChange: true);
+                      
             })
             .UseStartup<Startup>()
             .Build();

@@ -20,10 +20,10 @@ namespace Demo.WebService
     {
         public Startup(IConfiguration configuration)
         {
-            _Configuration = configuration;
+            Configuration = configuration;
         }
 
-        public IConfiguration _Configuration;// { get; }
+        public IConfiguration Configuration { get; }
 
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
@@ -31,7 +31,7 @@ namespace Demo.WebService
             services.AddMvc();
             services.AddDbContext<DemoDbContext>(options =>
             {
-                options.UseSqlServer(_Configuration.GetConnectionString("NothorwindDatabase"));
+                options.UseSqlServer(Configuration.GetConnectionString("NothorwindDatabase"));
             });
             services.AddScoped<IEmployeeService, EmployeeService>();
             services.AddScoped<IAccountService, AccountService>();

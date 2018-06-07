@@ -12,6 +12,10 @@ using Demo.BusinessLayer.DbContexts;
 using Microsoft.EntityFrameworkCore;
 using src.Interfaces;
 using Demo.BusinessLayer.Services;
+using Microsoft.AspNetCore.Authentication.JwtBearer;
+using Microsoft.IdentityModel.Tokens;
+using System.Text;
+using Demo.WebService.Seriveces.Entities.Authentications;
 
 namespace Demo.WebService
 {
@@ -33,6 +37,29 @@ namespace Demo.WebService
                 options.UseSqlServer(Configuration.GetConnectionString("NothorwindDatabase"));
             });
             services.AddScoped<IEmployeeService, EmployeeService>();
+
+            services.AddAuthentication(JwtBearerDefaults.AuthenticationScheme)
+            .AddJwtBearer(options =>
+            {
+                options.TokenValidationParameters = new TokenValidationParameters
+                {
+                    ValidateIssuer = true,
+                    ValidateAudience = true,
+                    ValidateLifetime = true,
+                    ValidateIssuerSigningKey = true,
+                    ValidIssuer = "yourdomain.com",
+                    ValidAudience = "yourdomain.com",
+                    IssuerSigningKey = new SymmetricSecurityKey(Encoding.UTF8.GetBytes(Configuration["SecurityKey"]))
+                };
+            });
+
+            services.AddAuthorization(options =>
+            {
+                options.AddPolicy("TrainedStaffOnly",
+                    policy => policy
+                    .RequireClaim("CompletedBasicTraining")
+                    .AddRequirements(new MinimumMonthsEmployedRequirement(3)));
+            });
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
@@ -42,6 +69,8 @@ namespace Demo.WebService
             {
                 app.UseDeveloperExceptionPage();
             }
+
+             app.UseAuthentication();
 
             app.UseMvc();
         }

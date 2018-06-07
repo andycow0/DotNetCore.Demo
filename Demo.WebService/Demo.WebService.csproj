@@ -9,7 +9,7 @@
   </ItemGroup>
 
   <ItemGroup>
-  <PackageReference Include="log4net" Version="2.0.8" />
+    <PackageReference Include="log4net" Version="2.0.8" />
     <PackageReference Include="Microsoft.AspNetCore.All" Version="2.0.6" />
     <PackageReference Include="NodaTime" Version="2.2.4" />
   </ItemGroup>
@@ -21,10 +21,10 @@
   <ItemGroup>
     <ProjectReference Include="..\Demo.BusinessLayer\src\Demo.BusinessLayer.csproj" />
   </ItemGroup>
-  
+
   <ItemGroup>
-      <None Include="Configurations\appsettings.json" CopyToOutputDirectory="Always" />
-      <None Include="Configurations\log4net.config" CopyToOutputDirectory="Always" />
-      <None Include="Configurations\DBConnections.json" CopyToOutputDirectory="Always" />
+    <None Include="Configurations\appsettings.json" CopyToOutputDirectory="Always" />
+    <None Include="Configurations\log4net.config" CopyToOutputDirectory="Always" />
+    <None Include="Configurations\DBConnections.json" CopyToOutputDirectory="Always" />
   </ItemGroup>
 </Project>

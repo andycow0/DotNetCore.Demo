@@ -16,6 +16,7 @@ using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.IdentityModel.Tokens;
 using System.Text;
 using Demo.WebService.Seriveces.Entities.Authentications;
+using Demo.WebService.Core.Logging;
 
 namespace Demo.WebService
 {
@@ -37,7 +38,7 @@ namespace Demo.WebService
                 options.UseSqlServer(Configuration.GetConnectionString("NothorwindDatabase"));
             });
             services.AddScoped<IEmployeeService, EmployeeService>();
-
+            // Authentication
             services.AddAuthentication(JwtBearerDefaults.AuthenticationScheme)
             .AddJwtBearer(options =>
             {
@@ -70,7 +71,9 @@ namespace Demo.WebService
                 app.UseDeveloperExceptionPage();
             }
 
-             app.UseAuthentication();
+            loggerFactory.AddLog4Net();
+
+            app.UseAuthentication();
 
             app.UseMvc();
         }

@@ -27,7 +27,7 @@ namespace Demo.WebService.Controllers
         [HttpPost]
         public IActionResult RequestToken([FromBody] TokenRequest request)
         {
-            if (request.Username == "Jon" && request.Password == "test")
+            if (request.Username == "test" && request.Password == "test")
             {
                 var claims = new[]
                 {

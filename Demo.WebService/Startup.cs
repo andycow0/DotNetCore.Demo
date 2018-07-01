@@ -12,7 +12,12 @@ using Demo.BusinessLayer.DbContexts;
 using Microsoft.EntityFrameworkCore;
 using src.Interfaces;
 using Demo.BusinessLayer.Services;
-using Demo.BusinessLayer.Interfaces;
+using Microsoft.AspNetCore.Authentication.JwtBearer;
+using Microsoft.IdentityModel.Tokens;
+using System.Text;
+using Demo.WebService.Seriveces.Entities.Authentications;
+using Demo.WebService.Core.Logging;
+using Swashbuckle.AspNetCore.Swagger;
 
 namespace Demo.WebService
 {
@@ -34,7 +39,37 @@ namespace Demo.WebService
                 options.UseSqlServer(Configuration.GetConnectionString("NothorwindDatabase"));
             });
             services.AddScoped<IEmployeeService, EmployeeService>();
-            services.AddScoped<IAccountService, AccountService>();
+            // Authentication
+            services.AddAuthentication(JwtBearerDefaults.AuthenticationScheme)
+            .AddJwtBearer(options =>
+            {
+                options.TokenValidationParameters = new TokenValidationParameters
+                {
+                    ValidateIssuer = true,
+                    ValidateAudience = true,
+                    ValidateLifetime = true,
+                    ValidateIssuerSigningKey = true,
+                    ValidIssuer = "yourdomain.com",
+                    ValidAudience = "yourdomain.com",
+                    IssuerSigningKey = new SymmetricSecurityKey(Encoding.UTF8.GetBytes(Configuration["SecurityKey"]))
+                };
+            });
+
+            services.AddAuthorization(options =>
+            {
+                options.AddPolicy("TrainedStaffOnly",
+                    policy => policy
+                    .RequireClaim("CompletedBasicTraining")
+                    .AddRequirements(new MinimumMonthsEmployedRequirement(3)));
+            });
+
+            // Register the Swagger generator
+            services.AddSwaggerGen(c =>
+            {
+                c.SwaggerDoc(
+                    "v1",
+                    new Info { Title = "My API", Version = "v1" });
+            });
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
@@ -45,6 +80,18 @@ namespace Demo.WebService
                 app.UseDeveloperExceptionPage();
             }
 
+            loggerFactory.AddLog4Net();
+
+            app.UseAuthentication();
+
+            // Enable middleware to serve generated Swagger as a JSON endpoint.
+            app.UseSwagger();
+            // Enable middleware to serve swagger-ui (HTML, JS, CSS, etc.), specifying the Swagger JSON endpoint.
+            app.UseSwaggerUI(c =>
+            {
+                c.SwaggerEndpoint("/swagger/v1/swagger.json", "My API V1");
+            });
+            
             app.UseMvc();
         }
     }

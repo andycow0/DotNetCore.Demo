@@ -64,14 +64,14 @@ namespace Demo.WebService
                     .AddRequirements(new MinimumMonthsEmployedRequirement(3)));
             });
 
-            string projectId = "dotnetcoredemo-208409";
-            string serviceName = "DemoWebService";
-            string version = "1.0";
+            var projectId = "dotnetcoredemo-208409";
+            var serviceName = "DemoWebService";
+            var version = "1.0";
 
-            string credential_path = @"D:\Working\09_Test\GCP_Application\Downloads\DotNetCoreDemo-8cea3611434b.json";
+            var credential_path = @"D:\Working\09_Test\GCP_Application\Downloads\DotNetCoreDemo-8cea3611434b.json";
             System.Environment.SetEnvironmentVariable("GOOGLE_APPLICATION_CREDENTIALS", credential_path);
 
-            string value = Environment.GetEnvironmentVariable("GOOGLE_APPLICATION_CREDENTIALS");
+            // var value = Environment.GetEnvironmentVariable("GOOGLE_APPLICATION_CREDENTIALS");
 
             services.AddGoogleExceptionLogging(options =>
             {

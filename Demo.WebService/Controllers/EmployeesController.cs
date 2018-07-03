@@ -23,11 +23,11 @@ namespace Demo.WebService.Controllers
         public IEnumerable<Employees> Get()
         {
             _Logger.LogTrace($"This is trace log. {DateTime.Now}");
-            _Logger.LogDebug($"This is Debug log. {DateTime.Now:'yyyyMMdd HH:mm'}"); ;
-            _Logger.LogError($"This is Error log. {DateTime.Now:'yyyyMMdd HH:mm'}");
-            _Logger.LogInformation($"This is Info log. {DateTime.Now:'yyyyMMdd HH:mm'}");
-            _Logger.LogWarning($"This is Warning log. {DateTime.Now:'yyyyMMdd HH:mm'}");
-            _Logger.LogCritical($"This is Critical log. {DateTime.Now:'yyyyMMdd HH:mm'}");
+            _Logger.LogDebug($"This is Debug log. {DateTime.Now:yyyyMMdd HH:mm}");
+            _Logger.LogError($"This is Error log. {DateTime.Now:yyyyMMdd HH:mm}");
+            _Logger.LogInformation($"This is Info log. {DateTime.Now:yyyyMMdd HH:mm}");
+            _Logger.LogWarning($"This is Warning log. {DateTime.Now:yyyyMMdd HH:mm}");
+            _Logger.LogCritical($"This is Critical log. {DateTime.Now:yyyyMMdd HH:mm}");
             // var result = this._EmployeeService.GetEmployees();
 
             var result = new List<Employees>()

@@ -64,14 +64,12 @@ namespace Demo.WebService
                     .AddRequirements(new MinimumMonthsEmployedRequirement(3)));
             });
 
-            var projectId = "dotnetcoredemo-208409";
-            var serviceName = "DemoWebService";
-            var version = "1.0";
+            var projectId = Configuration["Stackdriver:ProjectId"];
+            var serviceName = Configuration["Stackdriver:ServiceName"];
+            var version = Configuration["Stackdriver:Version"];
 
-            var credential_path = @"D:\Working\09_Test\GCP_Application\Downloads\DotNetCoreDemo-8cea3611434b.json";
+            var credential_path = Configuration["Stackdriver:CredentialPath"];
             System.Environment.SetEnvironmentVariable("GOOGLE_APPLICATION_CREDENTIALS", credential_path);
-
-            // var value = Environment.GetEnvironmentVariable("GOOGLE_APPLICATION_CREDENTIALS");
 
             services.AddGoogleExceptionLogging(options =>
             {
@@ -101,13 +99,18 @@ namespace Demo.WebService
 
             app.UseAuthentication();
 
+            #region GoogleLogging
+
             // Configure logging service.
             loggerFactory.AddGoogle(Configuration["Stackdriver:ProjectId"]);
-            var logger = loggerFactory.CreateLogger("testStackdriverLogging");
-            // Write the log entry.
-            logger.LogInformation("Stackdriver sample started. This is a log message.");
+            // // Write the log entry.
+            // var logger = loggerFactory.CreateLogger("testStackdriverLogging");
+            // logger.LogInformation("Stackdriver sample started. This is a log message.");
             // Use before handling any requests to ensure all unhandled exceptions are reported.
             app.UseGoogleExceptionLogging();
+            #endregion
+
+            #region Swagger
 
             // Enable middleware to serve generated Swagger as a JSON endpoint.
             app.UseSwagger();
@@ -116,6 +119,8 @@ namespace Demo.WebService
             {
                 c.SwaggerEndpoint("/swagger/v1/swagger.json", "My API V1");
             });
+
+            #endregion
 
             app.UseMvc();
         }

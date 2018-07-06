@@ -236,3 +236,7 @@ _Pvt_Extensions
 
 # FAKE - F# Make
 .fake/
+
+# Application Configuration file
+Configurations/
+DBConnections.json

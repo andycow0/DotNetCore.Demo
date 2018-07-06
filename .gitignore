@@ -236,4 +236,3 @@ _Pvt_Extensions
 
 # FAKE - F# Make
 .fake/
-/Demo.WebService/Configurations/DBConnections.json

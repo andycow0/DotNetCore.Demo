@@ -1,0 +1,5 @@
+﻿{
+  "ConnectionStrings": {
+    "NothorwindDatabase": "Server=localhost;Initial Catalog=NORTHWND;user id=sa;password=s0937s;Persist Security Info=true;"
+  }
+}

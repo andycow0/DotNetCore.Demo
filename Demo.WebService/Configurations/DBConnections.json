@@ -1,5 +1,0 @@
-﻿{
-  "ConnectionStrings": {
-    "NothorwindDatabase": "Server=23.100.95.55, 1433\\SQLEXPRESS;Initial Catalog=NORTHWND;user id=sa;password=s0937s;Persist Security Info=true;"
-  }
-}

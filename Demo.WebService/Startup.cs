@@ -64,18 +64,18 @@ namespace Demo.WebService
                     .AddRequirements(new MinimumMonthsEmployedRequirement(3)));
             });
 
-            var projectId = Configuration["Stackdriver:ProjectId"];
-            var serviceName = Configuration["Stackdriver:ServiceName"];
-            var version = Configuration["Stackdriver:Version"];
+            // var projectId = Configuration["Stackdriver:ProjectId"];
+            // var serviceName = Configuration["Stackdriver:ServiceName"];
+            // var version = Configuration["Stackdriver:Version"];
 
-            var credential_path = Configuration["Stackdriver:CredentialPath"];
-            System.Environment.SetEnvironmentVariable("GOOGLE_APPLICATION_CREDENTIALS", credential_path);
+            // var credential_path = Configuration["Stackdriver:CredentialPath"];
+            // System.Environment.SetEnvironmentVariable("GOOGLE_APPLICATION_CREDENTIALS", credential_path);
 
             services.AddGoogleExceptionLogging(options =>
             {
-                options.ProjectId = projectId;
-                options.ServiceName = serviceName;
-                options.Version = version;
+                options.ProjectId = "dotnetcoredemo-208409"; //projectId;
+                options.ServiceName = "dotnetcoredemo-208409.appspot.com";// serviceName;
+                options.Version = "1.0";// version;
             });
 
             // Register the Swagger generator
@@ -95,14 +95,14 @@ namespace Demo.WebService
                 app.UseDeveloperExceptionPage();
             }
 
-            loggerFactory.AddLog4Net();
+            // loggerFactory.AddLog4Net();
 
             app.UseAuthentication();
 
             #region GoogleLogging
 
             // Configure logging service.
-            loggerFactory.AddGoogle(Configuration["Stackdriver:ProjectId"]);
+            loggerFactory.AddGoogle("dotnetcoredemo-208409");
             // // Write the log entry.
             // var logger = loggerFactory.CreateLogger("testStackdriverLogging");
             // logger.LogInformation("Stackdriver sample started. This is a log message.");

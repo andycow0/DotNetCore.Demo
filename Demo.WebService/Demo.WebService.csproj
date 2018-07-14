@@ -28,5 +28,6 @@
     <None Include="Configurations\appsettings.json" CopyToOutputDirectory="Always" />
     <None Include="Configurations\log4net.config" CopyToOutputDirectory="Always" />
     <None Include="Configurations\DBConnections.json" CopyToOutputDirectory="Always" />
+    <None Include="app.yaml" CopyToOutputDirectory="Always" />
   </ItemGroup>
 </Project>

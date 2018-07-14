@@ -9,6 +9,9 @@ namespace Demo.BusinessLayer.DbContexts
 {
     public partial class DemoDbContext : DbContext
     {
+         public virtual DbSet<BankTb> BankTb { get; set; }
+        public virtual DbSet<BookingTb> BookingTb { get; set; }
+        public virtual DbSet<CarTb> CarTb { get; set; }
         public virtual DbSet<Categories> Categories { get; set; }
         public virtual DbSet<CustomerCustomerDemo> CustomerCustomerDemo { get; set; }
         public virtual DbSet<CustomerDemographics> CustomerDemographics { get; set; }
@@ -17,11 +20,15 @@ namespace Demo.BusinessLayer.DbContexts
         public virtual DbSet<EmployeeTerritories> EmployeeTerritories { get; set; }
         public virtual DbSet<OrderDetails> OrderDetails { get; set; }
         public virtual DbSet<Orders> Orders { get; set; }
+        public virtual DbSet<PaymentTb> PaymentTb { get; set; }
         public virtual DbSet<Products> Products { get; set; }
         public virtual DbSet<Region> Region { get; set; }
         public virtual DbSet<Shippers> Shippers { get; set; }
         public virtual DbSet<Suppliers> Suppliers { get; set; }
         public virtual DbSet<Territories> Territories { get; set; }
+        public virtual DbSet<TokenManager> TokenManager { get; set; }
+        public virtual DbSet<UserMasterTb> UserMasterTb { get; set; }
+        public virtual DbSet<UserType> UserType { get; set; }
 
         #region ctor
 
@@ -55,6 +62,102 @@ namespace Demo.BusinessLayer.DbContexts
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
+            modelBuilder.Entity<BankTb>(entity =>
+            {
+                entity.HasKey(e => e.BankId);
+
+                entity.ToTable("BankTB");
+
+                entity.Property(e => e.BankId).HasColumnName("BankID");
+
+                entity.Property(e => e.BankName)
+                    .HasMaxLength(50)
+                    .IsUnicode(false);
+            });
+
+            modelBuilder.Entity<BookingTb>(entity =>
+            {
+                entity.HasKey(e => e.BookingId);
+
+                entity.ToTable("BookingTB");
+
+                entity.Property(e => e.BookingId).HasColumnName("BookingID");
+
+                entity.Property(e => e.CId).HasColumnName("C_Id");
+
+                entity.Property(e => e.ContactNo)
+                    .HasColumnName("Contact_No")
+                    .HasMaxLength(10)
+                    .IsUnicode(false);
+
+                entity.Property(e => e.CreatedOn).HasColumnType("datetime");
+
+                entity.Property(e => e.DAddress)
+                    .HasColumnName("D_address")
+                    .HasMaxLength(50)
+                    .IsUnicode(false);
+
+                entity.Property(e => e.EmailId)
+                    .HasColumnName("Email_Id")
+                    .HasMaxLength(50)
+                    .IsUnicode(false);
+
+                entity.Property(e => e.FromDate).HasColumnType("datetime");
+
+                entity.Property(e => e.Name)
+                    .HasMaxLength(50)
+                    .IsUnicode(false);
+
+                entity.Property(e => e.PaymentStatus)
+                    .HasMaxLength(1)
+                    .IsUnicode(false);
+
+                entity.Property(e => e.SAddress)
+                    .HasColumnName("S_address")
+                    .HasMaxLength(50)
+                    .IsUnicode(false);
+
+                entity.Property(e => e.ToDate).HasColumnType("datetime");
+
+                entity.Property(e => e.UserId).HasColumnName("UserID");
+            });
+
+            modelBuilder.Entity<CarTb>(entity =>
+            {
+                entity.HasKey(e => e.CId);
+
+                entity.ToTable("CarTB");
+
+                entity.Property(e => e.CId).HasColumnName("C_Id");
+
+                entity.Property(e => e.Brand)
+                    .HasMaxLength(100)
+                    .IsUnicode(false);
+
+                entity.Property(e => e.Color)
+                    .HasMaxLength(100)
+                    .IsUnicode(false);
+
+                entity.Property(e => e.CreatedOn).HasColumnType("datetime");
+
+                entity.Property(e => e.Fueltype)
+                    .HasMaxLength(100)
+                    .IsUnicode(false);
+
+                entity.Property(e => e.Image)
+                    .HasMaxLength(100)
+                    .IsUnicode(false);
+
+                entity.Property(e => e.ModelName)
+                    .HasColumnName("Model_Name")
+                    .HasMaxLength(100)
+                    .IsUnicode(false);
+
+                entity.Property(e => e.NoOfPas).HasColumnName("No_of_Pas");
+
+                entity.Property(e => e.UserId).HasColumnName("UserID");
+            });
+
             modelBuilder.Entity<Categories>(entity =>
             {
                 entity.HasKey(e => e.CategoryId);
@@ -339,6 +442,27 @@ namespace Demo.BusinessLayer.DbContexts
                     .HasConstraintName("FK_Orders_Shippers");
             });
 
+            modelBuilder.Entity<PaymentTb>(entity =>
+            {
+                entity.HasKey(e => e.PId);
+
+                entity.ToTable("PaymentTB");
+
+                entity.Property(e => e.PId).HasColumnName("P_Id");
+
+                entity.Property(e => e.BankId).HasColumnName("BankID");
+
+                entity.Property(e => e.BookingId).HasColumnName("BookingID");
+
+                entity.Property(e => e.CId).HasColumnName("C_ID");
+
+                entity.Property(e => e.CreatedOn).HasColumnType("datetime");
+
+                entity.Property(e => e.PaymentDate).HasColumnType("datetime");
+
+                entity.Property(e => e.UserId).HasColumnName("UserID");
+            });
+
             modelBuilder.Entity<Products>(entity =>
             {
                 entity.HasKey(e => e.ProductId);
@@ -469,6 +593,70 @@ namespace Demo.BusinessLayer.DbContexts
                     .HasForeignKey(d => d.RegionId)
                     .OnDelete(DeleteBehavior.ClientSetNull)
                     .HasConstraintName("FK_Territories_Region");
+            });
+
+            modelBuilder.Entity<TokenManager>(entity =>
+            {
+                entity.HasKey(e => e.TokenId);
+
+                entity.Property(e => e.TokenId).HasColumnName("TokenID");
+
+                entity.Property(e => e.CreatedOn).HasColumnType("datetime");
+
+                entity.Property(e => e.ExpiresOn).HasColumnType("datetime");
+
+                entity.Property(e => e.IssuedOn).HasColumnType("datetime");
+
+                entity.Property(e => e.TokenKey)
+                    .HasMaxLength(100)
+                    .IsUnicode(false);
+
+                entity.Property(e => e.UserId).HasColumnName("UserID");
+            });
+
+            modelBuilder.Entity<UserMasterTb>(entity =>
+            {
+                entity.HasKey(e => e.UId);
+
+                entity.ToTable("UserMasterTB");
+
+                entity.Property(e => e.UId).HasColumnName("U_Id");
+
+                entity.Property(e => e.Address)
+                    .HasMaxLength(100)
+                    .IsUnicode(false);
+
+                entity.Property(e => e.Birthdate).HasColumnType("datetime");
+
+                entity.Property(e => e.ContactNo)
+                    .HasColumnName("Contact_No")
+                    .HasMaxLength(10)
+                    .IsUnicode(false);
+
+                entity.Property(e => e.CreatedOn).HasColumnType("datetime");
+
+                entity.Property(e => e.Email)
+                    .HasMaxLength(100)
+                    .IsUnicode(false);
+
+                entity.Property(e => e.Password)
+                    .HasMaxLength(100)
+                    .IsUnicode(false);
+
+                entity.Property(e => e.UserTypeId).HasColumnName("UserTypeID");
+
+                entity.Property(e => e.Username)
+                    .HasMaxLength(100)
+                    .IsUnicode(false);
+            });
+
+            modelBuilder.Entity<UserType>(entity =>
+            {
+                entity.Property(e => e.UserTypeId).HasColumnName("UserTypeID");
+
+                entity.Property(e => e.UserTypeName)
+                    .HasMaxLength(50)
+                    .IsUnicode(false);
             });
         }
     }

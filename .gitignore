@@ -238,4 +238,6 @@ _Pvt_Extensions
 # FAKE - F# Make
 .fake/
 
-
+# Porject builded files
+Demo.WebSite/wwwroot/
+Demo.WebSite/obj/

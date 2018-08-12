@@ -241,3 +241,4 @@ _Pvt_Extensions
 # Porject builded files
 Demo.WebSite/wwwroot/
 Demo.WebSite/obj/
+Demo.WebSite/bin/

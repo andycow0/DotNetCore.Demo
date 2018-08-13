@@ -4,68 +4,6 @@ info:
   title: DotNetCoreDemo
 host: dotnetcoredemo-208409.appspot.com
 paths:
-  /api/Customers:
-    get:
-      tags:
-        - Customers
-      operationId: ApiCustomersGet
-      consumes: []
-      produces:
-        - text/plain
-        - application/json
-        - text/json
-      parameters: []
-      responses:
-        '200':
-          description: Success
-          schema:
-            type: array
-            items:
-              $ref: '#/definitions/Customers'
-    post:
-      tags:
-        - Customers
-      operationId: ApiCustomersPost
-      consumes:
-        - application/json-patch+json
-        - application/json
-        - text/json
-        - application/*+json
-      produces:
-        - text/plain
-        - application/json
-        - text/json
-      parameters:
-        - name: customer
-          in: body
-          required: false
-          schema:
-            $ref: '#/definitions/Customers'
-      responses:
-        '200':
-          description: Success
-          schema:
-            $ref: '#/definitions/ResultModel'
-  '/api/Customers/{id}':
-    get:
-      tags:
-        - Customers
-      operationId: ApiCustomersByIdGet
-      consumes: []
-      produces:
-        - text/plain
-        - application/json
-        - text/json
-      parameters:
-        - name: id
-          in: path
-          required: true
-          type: string
-      responses:
-        '200':
-          description: Success
-          schema:
-            $ref: '#/definitions/ResultModel'
   /api/Employees:
     get:
       tags:
@@ -202,16 +140,25 @@ paths:
         '200':
           description: Success
 definitions:
-  Customers:
+  Employees:
     type: object
     properties:
-      customerId:
+      employeeId:
+        format: int32
+        type: integer
+      lastName:
         type: string
-      companyName:
+      firstName:
         type: string
-      contactName:
+      title:
         type: string
-      contactTitle:
+      titleOfCourtesy:
+        type: string
+      birthDate:
+        format: date-time
+        type: string
+      hireDate:
+        format: date-time
         type: string
       address:
         type: string
@@ -223,14 +170,46 @@ definitions:
         type: string
       country:
         type: string
-      phone:
+      homePhone:
         type: string
-      fax:
+      extension:
         type: string
+      photo:
+        format: byte
+        type: string
+      notes:
+        type: string
+      reportsTo:
+        format: int32
+        type: integer
+      photoPath:
+        type: string
+      reportsToNavigation:
+        $ref: '#/definitions/Employees'
+      employeeTerritories:
+        type: array
+        items:
+          $ref: '#/definitions/EmployeeTerritories'
+      inverseReportsToNavigation:
+        type: array
+        items:
+          $ref: '#/definitions/Employees'
       orders:
         type: array
         items:
           $ref: '#/definitions/Orders'
+  EmployeeTerritories:
+    type: object
+    properties:
+      employeeId:
+        format: int32
+        type: integer
+      territoryId:
+        type: string
+      employee:
+        $ref: '#/definitions/Employees'
+      territory:
+        $ref: '#/definitions/Territories'
   Orders:
     type: object
     properties:
@@ -279,25 +258,32 @@ definitions:
         type: array
         items:
           $ref: '#/definitions/OrderDetails'
-  Employees:
+  Territories:
     type: object
     properties:
-      employeeId:
+      territoryId:
+        type: string
+      territoryDescription:
+        type: string
+      regionId:
         format: int32
         type: integer
-      lastName:
+      region:
+        $ref: '#/definitions/Region'
+      employeeTerritories:
+        type: array
+        items:
+          $ref: '#/definitions/EmployeeTerritories'
+  Customers:
+    type: object
+    properties:
+      customerId:
         type: string
-      firstName:
+      companyName:
         type: string
-      title:
+      contactName:
         type: string
-      titleOfCourtesy:
-        type: string
-      birthDate:
-        format: date-time
-        type: string
-      hireDate:
-        format: date-time
+      contactTitle:
         type: string
       address:
         type: string
@@ -309,17 +295,18 @@ definitions:
         type: string
       country:
         type: string
-      homePhone:
+      phone:
         type: string
-      extension:
+      fax:
         type: string
-      notes:
-        type: string
-      reportsTo:
-        format: int32
-        type: integer
-      photoPath:
-        type: string
+      customerCustomerDemo:
+        type: array
+        items:
+          $ref: '#/definitions/CustomerCustomerDemo'
+      orders:
+        type: array
+        items:
+          $ref: '#/definitions/Orders'
   Shippers:
     type: object
     properties:
@@ -356,6 +343,29 @@ definitions:
         $ref: '#/definitions/Orders'
       product:
         $ref: '#/definitions/Products'
+  Region:
+    type: object
+    properties:
+      regionId:
+        format: int32
+        type: integer
+      regionDescription:
+        type: string
+      territories:
+        type: array
+        items:
+          $ref: '#/definitions/Territories'
+  CustomerCustomerDemo:
+    type: object
+    properties:
+      customerId:
+        type: string
+      customerTypeId:
+        type: string
+      customer:
+        $ref: '#/definitions/Customers'
+      customerType:
+        $ref: '#/definitions/CustomerDemographics'
   Products:
     type: object
     properties:
@@ -394,6 +404,17 @@ definitions:
         type: array
         items:
           $ref: '#/definitions/OrderDetails'
+  CustomerDemographics:
+    type: object
+    properties:
+      customerTypeId:
+        type: string
+      customerDesc:
+        type: string
+      customerCustomerDemo:
+        type: array
+        items:
+          $ref: '#/definitions/CustomerCustomerDemo'
   Categories:
     type: object
     properties:
@@ -443,15 +464,6 @@ definitions:
         type: array
         items:
           $ref: '#/definitions/Products'
-  ResultModel:
-    type: object
-    properties:
-      isSuccess:
-        type: boolean
-      message:
-        type: string
-      data:
-        type: object
   TokenRequest:
     type: object
     properties:

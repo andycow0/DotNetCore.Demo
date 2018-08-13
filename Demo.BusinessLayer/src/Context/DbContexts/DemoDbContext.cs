@@ -47,16 +47,16 @@ namespace Demo.BusinessLayer.DbContexts
             if (!optionsBuilder.IsConfigured)
             {
                 // #warning To protect potentially sensitive information in your connection string, you should move it out of source code. See http://go.microsoft.com/fwlink/?LinkId=723263 for guidance on storing connection strings.
-                //optionsBuilder.UseSqlServer(@"Server=DESKTOP-CP9V84E\SQLEXPRESS;Initial Catalog=NORTHWND;user id=sa;password=s0937s;Persist Security Info=true;");
-                var configuration = new ConfigurationBuilder()
-                                    .SetBasePath(AppDomain.CurrentDomain.BaseDirectory)
-                                    // .AddJsonFile("appsettings.json")
-                                    .AddJsonFile("Configurations\\DBConnections.json")
-                                    .Build();
+                optionsBuilder.UseSqlServer(@"Server=23.100.95.55, 1433;Initial Catalog=NORTHWND;user id=sa;password=s0937s;Persist Security Info=true;");
+                // var configuration = new ConfigurationBuilder()
+                //                     .SetBasePath(AppDomain.CurrentDomain.BaseDirectory)
+                //                     // .AddJsonFile("appsettings.json")
+                //                     .AddJsonFile("Configurations\\DBConnections.json")
+                //                     .Build();
 
-                var conn = configuration.GetConnectionString("NothorwindDatabase");
+                // var conn = configuration.GetConnectionString("NothorwindDatabase");
 
-                optionsBuilder.UseSqlServer(conn);
+                // optionsBuilder.UseSqlServer(conn);
             }
         }
 
@@ -189,11 +189,11 @@ namespace Demo.BusinessLayer.DbContexts
                     .HasColumnName("CustomerTypeID")
                     .HasColumnType("nchar(10)");
 
-                entity.HasOne(d => d.Customer)
-                    .WithMany(p => p.CustomerCustomerDemo)
-                    .HasForeignKey(d => d.CustomerId)
-                    .OnDelete(DeleteBehavior.ClientSetNull)
-                    .HasConstraintName("FK_CustomerCustomerDemo_Customers");
+                // entity.HasOne(d => d.Customer)
+                //     .WithMany(p => p.CustomerCustomerDemo)
+                //     .HasForeignKey(d => d.CustomerId)
+                //     .OnDelete(DeleteBehavior.ClientSetNull)
+                //     .HasConstraintName("FK_CustomerCustomerDemo_Customers");
 
                 entity.HasOne(d => d.CustomerType)
                     .WithMany(p => p.CustomerCustomerDemo)
@@ -295,7 +295,7 @@ namespace Demo.BusinessLayer.DbContexts
 
                 entity.Property(e => e.Notes).HasColumnType("ntext");
 
-                entity.Property(e => e.Photo).HasColumnType("image");
+                // entity.Property(e => e.Photo).HasColumnType("image");
 
                 entity.Property(e => e.PhotoPath).HasMaxLength(255);
 
@@ -307,10 +307,10 @@ namespace Demo.BusinessLayer.DbContexts
 
                 entity.Property(e => e.TitleOfCourtesy).HasMaxLength(25);
 
-                entity.HasOne(d => d.ReportsToNavigation)
-                    .WithMany(p => p.InverseReportsToNavigation)
-                    .HasForeignKey(d => d.ReportsTo)
-                    .HasConstraintName("FK_Employees_Employees");
+                // entity.HasOne(d => d.ReportsToNavigation)
+                //     .WithMany(p => p.InverseReportsToNavigation)
+                //     .HasForeignKey(d => d.ReportsTo)
+                //     .HasConstraintName("FK_Employees_Employees");
             });
 
             modelBuilder.Entity<EmployeeTerritories>(entity =>
@@ -324,11 +324,11 @@ namespace Demo.BusinessLayer.DbContexts
                     .HasColumnName("TerritoryID")
                     .HasMaxLength(20);
 
-                entity.HasOne(d => d.Employee)
-                    .WithMany(p => p.EmployeeTerritories)
-                    .HasForeignKey(d => d.EmployeeId)
-                    .OnDelete(DeleteBehavior.ClientSetNull)
-                    .HasConstraintName("FK_EmployeeTerritories_Employees");
+                // entity.HasOne(d => d.Employee)
+                //     .WithMany(p => p.EmployeeTerritories)
+                //     .HasForeignKey(d => d.EmployeeId)
+                //     .OnDelete(DeleteBehavior.ClientSetNull)
+                //     .HasConstraintName("FK_EmployeeTerritories_Employees");
 
                 entity.HasOne(d => d.Territory)
                     .WithMany(p => p.EmployeeTerritories)
@@ -431,10 +431,10 @@ namespace Demo.BusinessLayer.DbContexts
                     .HasForeignKey(d => d.CustomerId)
                     .HasConstraintName("FK_Orders_Customers");
 
-                entity.HasOne(d => d.Employee)
-                    .WithMany(p => p.Orders)
-                    .HasForeignKey(d => d.EmployeeId)
-                    .HasConstraintName("FK_Orders_Employees");
+                // entity.HasOne(d => d.Employee)
+                //     .WithMany(p => p.Orders)
+                //     .HasForeignKey(d => d.EmployeeId)
+                //     .HasConstraintName("FK_Orders_Employees");
 
                 entity.HasOne(d => d.ShipViaNavigation)
                     .WithMany(p => p.Orders)

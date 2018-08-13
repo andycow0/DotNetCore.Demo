@@ -7,9 +7,9 @@ namespace Demo.BusinessLayer.Models
     {
         public Employees()
         {
-            EmployeeTerritories = new HashSet<EmployeeTerritories>();
-            InverseReportsToNavigation = new HashSet<Employees>();
-            Orders = new HashSet<Orders>();
+            // EmployeeTerritories = new HashSet<EmployeeTerritories>();
+            // InverseReportsToNavigation = new HashSet<Employees>();
+            // Orders = new HashSet<Orders>();
         }
 
         public int EmployeeId { get; set; }
@@ -26,14 +26,14 @@ namespace Demo.BusinessLayer.Models
         public string Country { get; set; }
         public string HomePhone { get; set; }
         public string Extension { get; set; }
-        public byte[] Photo { get; set; }
+        // public byte[] Photo { get; set; }
         public string Notes { get; set; }
         public int? ReportsTo { get; set; }
         public string PhotoPath { get; set; }
 
-        public Employees ReportsToNavigation { get; set; }
-        public ICollection<EmployeeTerritories> EmployeeTerritories { get; set; }
-        public ICollection<Employees> InverseReportsToNavigation { get; set; }
-        public ICollection<Orders> Orders { get; set; }
+        // public Employees ReportsToNavigation { get; set; }
+        // public ICollection<EmployeeTerritories> EmployeeTerritories { get; set; }
+        // public ICollection<Employees> InverseReportsToNavigation { get; set; }
+        // public ICollection<Orders> Orders { get; set; }
     }
 }

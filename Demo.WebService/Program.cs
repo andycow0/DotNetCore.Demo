@@ -42,7 +42,7 @@ namespace Demo.WebService
             })
             .ConfigureLogging((hostContext, logging) =>
             {
-                logging.AddProvider(new Log4NetProvider("Configurations\\log4net.config"));
+                logging.AddProvider(new Log4NetProvider("Configurations//log4net.config"));
             })
             .UseStartup<Startup>()
             .Build();

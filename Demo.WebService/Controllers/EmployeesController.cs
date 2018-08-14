@@ -28,27 +28,28 @@ namespace Demo.WebService.Controllers
             _Logger.LogInformation($"This is Info log. {DateTime.Now:yyyyMMdd HH:mm}");
             _Logger.LogWarning($"This is Warning log. {DateTime.Now:yyyyMMdd HH:mm}");
             _Logger.LogCritical($"This is Critical log. {DateTime.Now:yyyyMMdd HH:mm}");
-            // var result = this._EmployeeService.GetEmployees();
 
-            var result = new List<Employees>()
-            {
-                new Employees(){
-                    FirstName ="測試123456",
-                    LastName ="Aa",
-                    BirthDate=DateTime.Now.AddDays(-1)
-                },
-                new Employees(){
-                    FirstName ="Test2",
-                    LastName ="Bb",
-                    BirthDate=DateTime.Now.AddDays(-2)
-                },
+            var result = this._EmployeeService.GetEmployees();
 
-                new Employees(){
-                    FirstName ="Test3",
-                    LastName ="Cc",
-                    BirthDate=DateTime.Now.AddDays(-3)
-                },
-            };
+            // var result = new List<Employees>()
+            // {
+            //     new Employees(){
+            //         FirstName ="測試123456",
+            //         LastName ="Aa",
+            //         BirthDate=DateTime.Now.AddDays(-1)
+            //     },
+            //     new Employees(){
+            //         FirstName ="Test2",
+            //         LastName ="Bb",
+            //         BirthDate=DateTime.Now.AddDays(-2)
+            //     },
+
+            //     new Employees(){
+            //         FirstName ="Test3",
+            //         LastName ="Cc",
+            //         BirthDate=DateTime.Now.AddDays(-3)
+            //     },
+            // };
 
             return result;
         }

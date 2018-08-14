@@ -37,8 +37,8 @@ namespace Demo.WebService
             services.AddMvc();
             services.AddDbContext<DemoDbContext>(options =>
             {
-                // options.UseSqlServer(Configuration.GetConnectionString("NothorwindDatabase"));
-                options.UseSqlServer(@"Server=23.100.95.55, 1433;Initial Catalog=NORTHWND;user id=sa;password=s0937s;Persist Security Info=true;");
+                 options.UseSqlServer(Configuration.GetConnectionString("NothorwindDatabase"));
+                // options.UseSqlServer(@"Server=23.100.95.55, 1433;Initial Catalog=NORTHWND;user id=sa;password=s0937s;Persist Security Info=true;");
 
             });
             services.AddScoped<IEmployeeService, EmployeeService>();

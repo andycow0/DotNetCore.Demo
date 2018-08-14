@@ -47,7 +47,8 @@ namespace Demo.BusinessLayer.DbContexts
             if (!optionsBuilder.IsConfigured)
             {
                 // #warning To protect potentially sensitive information in your connection string, you should move it out of source code. See http://go.microsoft.com/fwlink/?LinkId=723263 for guidance on storing connection strings.
-                optionsBuilder.UseSqlServer(@"Server=23.100.95.55, 1433;Initial Catalog=NORTHWND;user id=sa;password=s0937s;Persist Security Info=true;");
+                // optionsBuilder.UseSqlServer(@"Server=, 1433;Initial Catalog=NORTHWND;user id=sa;password=s0937s;Persist Security Info=true;");
+                optionsBuilder.UseSqlServer(@"Server=localhost, 1433;Initial Catalog=NORTHWND;user id=sa;password=s0937s;Persist Security Info=true;");
                 // var configuration = new ConfigurationBuilder()
                 //                     .SetBasePath(AppDomain.CurrentDomain.BaseDirectory)
                 //                     // .AddJsonFile("appsettings.json")

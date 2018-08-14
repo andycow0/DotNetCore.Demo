@@ -1,7 +1,7 @@
 swagger: '2.0'
 info:
   version: v1
-  title: DotNetCoreDemo
+  title: My API
 host: dotnetcoredemo-208409.appspot.com
 paths:
   /api/Customers:
@@ -51,6 +51,25 @@ paths:
       tags:
         - Customers
       operationId: ApiCustomersByIdGet
+      consumes: []
+      produces:
+        - text/plain
+        - application/json
+        - text/json
+      parameters:
+        - name: id
+          in: path
+          required: true
+          type: string
+      responses:
+        '200':
+          description: Success
+          schema:
+            $ref: '#/definitions/ResultModel'
+    delete:
+      tags:
+        - Customers
+      operationId: ApiCustomersByIdDelete
       consumes: []
       produces:
         - text/plain

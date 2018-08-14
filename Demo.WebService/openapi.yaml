@@ -1,0 +1,461 @@
+swagger: '2.0'
+info:
+  version: v1
+  title: DotNetCoreDemo
+host: dotnetcoredemo-208409.appspot.com
+paths:
+  /api/Customers:
+    get:
+      tags:
+        - Customers
+      operationId: ApiCustomersGet
+      consumes: []
+      produces:
+        - text/plain
+        - application/json
+        - text/json
+      parameters: []
+      responses:
+        '200':
+          description: Success
+          schema:
+            type: array
+            items:
+              $ref: '#/definitions/Customers'
+    post:
+      tags:
+        - Customers
+      operationId: ApiCustomersPost
+      consumes:
+        - application/json-patch+json
+        - application/json
+        - text/json
+        - application/*+json
+      produces:
+        - text/plain
+        - application/json
+        - text/json
+      parameters:
+        - name: customer
+          in: body
+          required: false
+          schema:
+            $ref: '#/definitions/Customers'
+      responses:
+        '200':
+          description: Success
+          schema:
+            $ref: '#/definitions/ResultModel'
+  '/api/Customers/{id}':
+    get:
+      tags:
+        - Customers
+      operationId: ApiCustomersByIdGet
+      consumes: []
+      produces:
+        - text/plain
+        - application/json
+        - text/json
+      parameters:
+        - name: id
+          in: path
+          required: true
+          type: string
+      responses:
+        '200':
+          description: Success
+          schema:
+            $ref: '#/definitions/ResultModel'
+  /api/Employees:
+    get:
+      tags:
+        - Employees
+      operationId: ApiEmployeesGet
+      consumes: []
+      produces:
+        - text/plain
+        - application/json
+        - text/json
+      parameters: []
+      responses:
+        '200':
+          description: Success
+          schema:
+            type: array
+            items:
+              $ref: '#/definitions/Employees'
+  /api/Token:
+    post:
+      tags:
+        - Token
+      operationId: ApiTokenPost
+      consumes:
+        - application/json-patch+json
+        - application/json
+        - text/json
+        - application/*+json
+      produces: []
+      parameters:
+        - name: request
+          in: body
+          required: false
+          schema:
+            $ref: '#/definitions/TokenRequest'
+      responses:
+        '200':
+          description: Success
+  /api/Values:
+    get:
+      tags:
+        - Values
+      operationId: ApiValuesGet
+      consumes: []
+      produces:
+        - text/plain
+        - application/json
+        - text/json
+      parameters: []
+      responses:
+        '200':
+          description: Success
+          schema:
+            type: array
+            items:
+              type: string
+    post:
+      tags:
+        - Values
+      operationId: ApiValuesPost
+      consumes:
+        - application/json-patch+json
+        - application/json
+        - text/json
+        - application/*+json
+      produces: []
+      parameters:
+        - name: value
+          in: body
+          required: false
+          schema:
+            type: string
+      responses:
+        '200':
+          description: Success
+  '/api/Values/{id}':
+    get:
+      tags:
+        - Values
+      operationId: ApiValuesByIdGet
+      consumes: []
+      produces:
+        - text/plain
+        - application/json
+        - text/json
+      parameters:
+        - name: id
+          in: path
+          required: true
+          type: integer
+          format: int32
+      responses:
+        '200':
+          description: Success
+          schema:
+            type: string
+    put:
+      tags:
+        - Values
+      operationId: ApiValuesByIdPut
+      consumes:
+        - application/json-patch+json
+        - application/json
+        - text/json
+        - application/*+json
+      produces: []
+      parameters:
+        - name: id
+          in: path
+          required: true
+          type: integer
+          format: int32
+        - name: value
+          in: body
+          required: false
+          schema:
+            type: string
+      responses:
+        '200':
+          description: Success
+    delete:
+      tags:
+        - Values
+      operationId: ApiValuesByIdDelete
+      consumes: []
+      produces: []
+      parameters:
+        - name: id
+          in: path
+          required: true
+          type: integer
+          format: int32
+      responses:
+        '200':
+          description: Success
+definitions:
+  Customers:
+    type: object
+    properties:
+      customerId:
+        type: string
+      companyName:
+        type: string
+      contactName:
+        type: string
+      contactTitle:
+        type: string
+      address:
+        type: string
+      city:
+        type: string
+      region:
+        type: string
+      postalCode:
+        type: string
+      country:
+        type: string
+      phone:
+        type: string
+      fax:
+        type: string
+      orders:
+        type: array
+        items:
+          $ref: '#/definitions/Orders'
+  Orders:
+    type: object
+    properties:
+      orderId:
+        format: int32
+        type: integer
+      customerId:
+        type: string
+      employeeId:
+        format: int32
+        type: integer
+      orderDate:
+        format: date-time
+        type: string
+      requiredDate:
+        format: date-time
+        type: string
+      shippedDate:
+        format: date-time
+        type: string
+      shipVia:
+        format: int32
+        type: integer
+      freight:
+        format: double
+        type: number
+      shipName:
+        type: string
+      shipAddress:
+        type: string
+      shipCity:
+        type: string
+      shipRegion:
+        type: string
+      shipPostalCode:
+        type: string
+      shipCountry:
+        type: string
+      customer:
+        $ref: '#/definitions/Customers'
+      employee:
+        $ref: '#/definitions/Employees'
+      shipViaNavigation:
+        $ref: '#/definitions/Shippers'
+      orderDetails:
+        type: array
+        items:
+          $ref: '#/definitions/OrderDetails'
+  Employees:
+    type: object
+    properties:
+      employeeId:
+        format: int32
+        type: integer
+      lastName:
+        type: string
+      firstName:
+        type: string
+      title:
+        type: string
+      titleOfCourtesy:
+        type: string
+      birthDate:
+        format: date-time
+        type: string
+      hireDate:
+        format: date-time
+        type: string
+      address:
+        type: string
+      city:
+        type: string
+      region:
+        type: string
+      postalCode:
+        type: string
+      country:
+        type: string
+      homePhone:
+        type: string
+      extension:
+        type: string
+      notes:
+        type: string
+      reportsTo:
+        format: int32
+        type: integer
+      photoPath:
+        type: string
+  Shippers:
+    type: object
+    properties:
+      shipperId:
+        format: int32
+        type: integer
+      companyName:
+        type: string
+      phone:
+        type: string
+      orders:
+        type: array
+        items:
+          $ref: '#/definitions/Orders'
+  OrderDetails:
+    type: object
+    properties:
+      orderId:
+        format: int32
+        type: integer
+      productId:
+        format: int32
+        type: integer
+      unitPrice:
+        format: double
+        type: number
+      quantity:
+        format: int32
+        type: integer
+      discount:
+        format: float
+        type: number
+      order:
+        $ref: '#/definitions/Orders'
+      product:
+        $ref: '#/definitions/Products'
+  Products:
+    type: object
+    properties:
+      productId:
+        format: int32
+        type: integer
+      productName:
+        type: string
+      supplierId:
+        format: int32
+        type: integer
+      categoryId:
+        format: int32
+        type: integer
+      quantityPerUnit:
+        type: string
+      unitPrice:
+        format: double
+        type: number
+      unitsInStock:
+        format: int32
+        type: integer
+      unitsOnOrder:
+        format: int32
+        type: integer
+      reorderLevel:
+        format: int32
+        type: integer
+      discontinued:
+        type: boolean
+      category:
+        $ref: '#/definitions/Categories'
+      supplier:
+        $ref: '#/definitions/Suppliers'
+      orderDetails:
+        type: array
+        items:
+          $ref: '#/definitions/OrderDetails'
+  Categories:
+    type: object
+    properties:
+      categoryId:
+        format: int32
+        type: integer
+      categoryName:
+        type: string
+      description:
+        type: string
+      picture:
+        format: byte
+        type: string
+      products:
+        type: array
+        items:
+          $ref: '#/definitions/Products'
+  Suppliers:
+    type: object
+    properties:
+      supplierId:
+        format: int32
+        type: integer
+      companyName:
+        type: string
+      contactName:
+        type: string
+      contactTitle:
+        type: string
+      address:
+        type: string
+      city:
+        type: string
+      region:
+        type: string
+      postalCode:
+        type: string
+      country:
+        type: string
+      phone:
+        type: string
+      fax:
+        type: string
+      homePage:
+        type: string
+      products:
+        type: array
+        items:
+          $ref: '#/definitions/Products'
+  ResultModel:
+    type: object
+    properties:
+      isSuccess:
+        type: boolean
+      message:
+        type: string
+      data:
+        type: object
+  TokenRequest:
+    type: object
+    properties:
+      username:
+        type: string
+      password:
+        type: string

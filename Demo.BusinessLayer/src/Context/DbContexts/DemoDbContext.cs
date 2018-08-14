@@ -9,6 +9,9 @@ namespace Demo.BusinessLayer.DbContexts
 {
     public partial class DemoDbContext : DbContext
     {
+         public virtual DbSet<BankTb> BankTb { get; set; }
+        public virtual DbSet<BookingTb> BookingTb { get; set; }
+        public virtual DbSet<CarTb> CarTb { get; set; }
         public virtual DbSet<Categories> Categories { get; set; }
         public virtual DbSet<CustomerCustomerDemo> CustomerCustomerDemo { get; set; }
         public virtual DbSet<CustomerDemographics> CustomerDemographics { get; set; }
@@ -17,11 +20,15 @@ namespace Demo.BusinessLayer.DbContexts
         public virtual DbSet<EmployeeTerritories> EmployeeTerritories { get; set; }
         public virtual DbSet<OrderDetails> OrderDetails { get; set; }
         public virtual DbSet<Orders> Orders { get; set; }
+        public virtual DbSet<PaymentTb> PaymentTb { get; set; }
         public virtual DbSet<Products> Products { get; set; }
         public virtual DbSet<Region> Region { get; set; }
         public virtual DbSet<Shippers> Shippers { get; set; }
         public virtual DbSet<Suppliers> Suppliers { get; set; }
         public virtual DbSet<Territories> Territories { get; set; }
+        public virtual DbSet<TokenManager> TokenManager { get; set; }
+        public virtual DbSet<UserMasterTb> UserMasterTb { get; set; }
+        public virtual DbSet<UserType> UserType { get; set; }
 
         #region ctor
 
@@ -40,21 +47,118 @@ namespace Demo.BusinessLayer.DbContexts
             if (!optionsBuilder.IsConfigured)
             {
                 // #warning To protect potentially sensitive information in your connection string, you should move it out of source code. See http://go.microsoft.com/fwlink/?LinkId=723263 for guidance on storing connection strings.
-                //optionsBuilder.UseSqlServer(@"Server=DESKTOP-CP9V84E\SQLEXPRESS;Initial Catalog=NORTHWND;user id=sa;password=s0937s;Persist Security Info=true;");
-                var configuration = new ConfigurationBuilder()
-                                    .SetBasePath(AppDomain.CurrentDomain.BaseDirectory)
-                                    // .AddJsonFile("appsettings.json")
-                                    .AddJsonFile("Configurations\\DBConnections.json")
-                                    .Build();
+                // optionsBuilder.UseSqlServer(@"Server=, 1433;Initial Catalog=NORTHWND;user id=sa;password=s0937s;Persist Security Info=true;");
+                optionsBuilder.UseSqlServer(@"Server=localhost, 1433;Initial Catalog=NORTHWND;user id=sa;password=s0937s;Persist Security Info=true;");
+                // var configuration = new ConfigurationBuilder()
+                //                     .SetBasePath(AppDomain.CurrentDomain.BaseDirectory)
+                //                     // .AddJsonFile("appsettings.json")
+                //                     .AddJsonFile("Configurations\\DBConnections.json")
+                //                     .Build();
 
-                var conn = configuration.GetConnectionString("NothorwindDatabase");
+                // var conn = configuration.GetConnectionString("NothorwindDatabase");
 
-                optionsBuilder.UseSqlServer(conn);
+                // optionsBuilder.UseSqlServer(conn);
             }
         }
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
+            modelBuilder.Entity<BankTb>(entity =>
+            {
+                entity.HasKey(e => e.BankId);
+
+                entity.ToTable("BankTB");
+
+                entity.Property(e => e.BankId).HasColumnName("BankID");
+
+                entity.Property(e => e.BankName)
+                    .HasMaxLength(50)
+                    .IsUnicode(false);
+            });
+
+            modelBuilder.Entity<BookingTb>(entity =>
+            {
+                entity.HasKey(e => e.BookingId);
+
+                entity.ToTable("BookingTB");
+
+                entity.Property(e => e.BookingId).HasColumnName("BookingID");
+
+                entity.Property(e => e.CId).HasColumnName("C_Id");
+
+                entity.Property(e => e.ContactNo)
+                    .HasColumnName("Contact_No")
+                    .HasMaxLength(10)
+                    .IsUnicode(false);
+
+                entity.Property(e => e.CreatedOn).HasColumnType("datetime");
+
+                entity.Property(e => e.DAddress)
+                    .HasColumnName("D_address")
+                    .HasMaxLength(50)
+                    .IsUnicode(false);
+
+                entity.Property(e => e.EmailId)
+                    .HasColumnName("Email_Id")
+                    .HasMaxLength(50)
+                    .IsUnicode(false);
+
+                entity.Property(e => e.FromDate).HasColumnType("datetime");
+
+                entity.Property(e => e.Name)
+                    .HasMaxLength(50)
+                    .IsUnicode(false);
+
+                entity.Property(e => e.PaymentStatus)
+                    .HasMaxLength(1)
+                    .IsUnicode(false);
+
+                entity.Property(e => e.SAddress)
+                    .HasColumnName("S_address")
+                    .HasMaxLength(50)
+                    .IsUnicode(false);
+
+                entity.Property(e => e.ToDate).HasColumnType("datetime");
+
+                entity.Property(e => e.UserId).HasColumnName("UserID");
+            });
+
+            modelBuilder.Entity<CarTb>(entity =>
+            {
+                entity.HasKey(e => e.CId);
+
+                entity.ToTable("CarTB");
+
+                entity.Property(e => e.CId).HasColumnName("C_Id");
+
+                entity.Property(e => e.Brand)
+                    .HasMaxLength(100)
+                    .IsUnicode(false);
+
+                entity.Property(e => e.Color)
+                    .HasMaxLength(100)
+                    .IsUnicode(false);
+
+                entity.Property(e => e.CreatedOn).HasColumnType("datetime");
+
+                entity.Property(e => e.Fueltype)
+                    .HasMaxLength(100)
+                    .IsUnicode(false);
+
+                entity.Property(e => e.Image)
+                    .HasMaxLength(100)
+                    .IsUnicode(false);
+
+                entity.Property(e => e.ModelName)
+                    .HasColumnName("Model_Name")
+                    .HasMaxLength(100)
+                    .IsUnicode(false);
+
+                entity.Property(e => e.NoOfPas).HasColumnName("No_of_Pas");
+
+                entity.Property(e => e.UserId).HasColumnName("UserID");
+            });
+
             modelBuilder.Entity<Categories>(entity =>
             {
                 entity.HasKey(e => e.CategoryId);
@@ -86,11 +190,11 @@ namespace Demo.BusinessLayer.DbContexts
                     .HasColumnName("CustomerTypeID")
                     .HasColumnType("nchar(10)");
 
-                entity.HasOne(d => d.Customer)
-                    .WithMany(p => p.CustomerCustomerDemo)
-                    .HasForeignKey(d => d.CustomerId)
-                    .OnDelete(DeleteBehavior.ClientSetNull)
-                    .HasConstraintName("FK_CustomerCustomerDemo_Customers");
+                // entity.HasOne(d => d.Customer)
+                //     .WithMany(p => p.CustomerCustomerDemo)
+                //     .HasForeignKey(d => d.CustomerId)
+                //     .OnDelete(DeleteBehavior.ClientSetNull)
+                //     .HasConstraintName("FK_CustomerCustomerDemo_Customers");
 
                 entity.HasOne(d => d.CustomerType)
                     .WithMany(p => p.CustomerCustomerDemo)
@@ -192,7 +296,7 @@ namespace Demo.BusinessLayer.DbContexts
 
                 entity.Property(e => e.Notes).HasColumnType("ntext");
 
-                entity.Property(e => e.Photo).HasColumnType("image");
+                // entity.Property(e => e.Photo).HasColumnType("image");
 
                 entity.Property(e => e.PhotoPath).HasMaxLength(255);
 
@@ -204,10 +308,10 @@ namespace Demo.BusinessLayer.DbContexts
 
                 entity.Property(e => e.TitleOfCourtesy).HasMaxLength(25);
 
-                entity.HasOne(d => d.ReportsToNavigation)
-                    .WithMany(p => p.InverseReportsToNavigation)
-                    .HasForeignKey(d => d.ReportsTo)
-                    .HasConstraintName("FK_Employees_Employees");
+                // entity.HasOne(d => d.ReportsToNavigation)
+                //     .WithMany(p => p.InverseReportsToNavigation)
+                //     .HasForeignKey(d => d.ReportsTo)
+                //     .HasConstraintName("FK_Employees_Employees");
             });
 
             modelBuilder.Entity<EmployeeTerritories>(entity =>
@@ -221,11 +325,11 @@ namespace Demo.BusinessLayer.DbContexts
                     .HasColumnName("TerritoryID")
                     .HasMaxLength(20);
 
-                entity.HasOne(d => d.Employee)
-                    .WithMany(p => p.EmployeeTerritories)
-                    .HasForeignKey(d => d.EmployeeId)
-                    .OnDelete(DeleteBehavior.ClientSetNull)
-                    .HasConstraintName("FK_EmployeeTerritories_Employees");
+                // entity.HasOne(d => d.Employee)
+                //     .WithMany(p => p.EmployeeTerritories)
+                //     .HasForeignKey(d => d.EmployeeId)
+                //     .OnDelete(DeleteBehavior.ClientSetNull)
+                //     .HasConstraintName("FK_EmployeeTerritories_Employees");
 
                 entity.HasOne(d => d.Territory)
                     .WithMany(p => p.EmployeeTerritories)
@@ -328,15 +432,36 @@ namespace Demo.BusinessLayer.DbContexts
                     .HasForeignKey(d => d.CustomerId)
                     .HasConstraintName("FK_Orders_Customers");
 
-                entity.HasOne(d => d.Employee)
-                    .WithMany(p => p.Orders)
-                    .HasForeignKey(d => d.EmployeeId)
-                    .HasConstraintName("FK_Orders_Employees");
+                // entity.HasOne(d => d.Employee)
+                //     .WithMany(p => p.Orders)
+                //     .HasForeignKey(d => d.EmployeeId)
+                //     .HasConstraintName("FK_Orders_Employees");
 
                 entity.HasOne(d => d.ShipViaNavigation)
                     .WithMany(p => p.Orders)
                     .HasForeignKey(d => d.ShipVia)
                     .HasConstraintName("FK_Orders_Shippers");
+            });
+
+            modelBuilder.Entity<PaymentTb>(entity =>
+            {
+                entity.HasKey(e => e.PId);
+
+                entity.ToTable("PaymentTB");
+
+                entity.Property(e => e.PId).HasColumnName("P_Id");
+
+                entity.Property(e => e.BankId).HasColumnName("BankID");
+
+                entity.Property(e => e.BookingId).HasColumnName("BookingID");
+
+                entity.Property(e => e.CId).HasColumnName("C_ID");
+
+                entity.Property(e => e.CreatedOn).HasColumnType("datetime");
+
+                entity.Property(e => e.PaymentDate).HasColumnType("datetime");
+
+                entity.Property(e => e.UserId).HasColumnName("UserID");
             });
 
             modelBuilder.Entity<Products>(entity =>
@@ -469,6 +594,70 @@ namespace Demo.BusinessLayer.DbContexts
                     .HasForeignKey(d => d.RegionId)
                     .OnDelete(DeleteBehavior.ClientSetNull)
                     .HasConstraintName("FK_Territories_Region");
+            });
+
+            modelBuilder.Entity<TokenManager>(entity =>
+            {
+                entity.HasKey(e => e.TokenId);
+
+                entity.Property(e => e.TokenId).HasColumnName("TokenID");
+
+                entity.Property(e => e.CreatedOn).HasColumnType("datetime");
+
+                entity.Property(e => e.ExpiresOn).HasColumnType("datetime");
+
+                entity.Property(e => e.IssuedOn).HasColumnType("datetime");
+
+                entity.Property(e => e.TokenKey)
+                    .HasMaxLength(100)
+                    .IsUnicode(false);
+
+                entity.Property(e => e.UserId).HasColumnName("UserID");
+            });
+
+            modelBuilder.Entity<UserMasterTb>(entity =>
+            {
+                entity.HasKey(e => e.UId);
+
+                entity.ToTable("UserMasterTB");
+
+                entity.Property(e => e.UId).HasColumnName("U_Id");
+
+                entity.Property(e => e.Address)
+                    .HasMaxLength(100)
+                    .IsUnicode(false);
+
+                entity.Property(e => e.Birthdate).HasColumnType("datetime");
+
+                entity.Property(e => e.ContactNo)
+                    .HasColumnName("Contact_No")
+                    .HasMaxLength(10)
+                    .IsUnicode(false);
+
+                entity.Property(e => e.CreatedOn).HasColumnType("datetime");
+
+                entity.Property(e => e.Email)
+                    .HasMaxLength(100)
+                    .IsUnicode(false);
+
+                entity.Property(e => e.Password)
+                    .HasMaxLength(100)
+                    .IsUnicode(false);
+
+                entity.Property(e => e.UserTypeId).HasColumnName("UserTypeID");
+
+                entity.Property(e => e.Username)
+                    .HasMaxLength(100)
+                    .IsUnicode(false);
+            });
+
+            modelBuilder.Entity<UserType>(entity =>
+            {
+                entity.Property(e => e.UserTypeId).HasColumnName("UserTypeID");
+
+                entity.Property(e => e.UserTypeName)
+                    .HasMaxLength(50)
+                    .IsUnicode(false);
             });
         }
     }

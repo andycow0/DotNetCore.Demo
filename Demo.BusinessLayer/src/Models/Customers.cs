@@ -7,7 +7,7 @@ namespace Demo.BusinessLayer.Models
     {
         public Customers()
         {
-            CustomerCustomerDemo = new HashSet<CustomerCustomerDemo>();
+            // CustomerCustomerDemo = new HashSet<CustomerCustomerDemo>();
             Orders = new HashSet<Orders>();
         }
 
@@ -23,7 +23,7 @@ namespace Demo.BusinessLayer.Models
         public string Phone { get; set; }
         public string Fax { get; set; }
 
-        public ICollection<CustomerCustomerDemo> CustomerCustomerDemo { get; set; }
+        // public ICollection<CustomerCustomerDemo> CustomerCustomerDemo { get; set; }
         public ICollection<Orders> Orders { get; set; }
     }
 }

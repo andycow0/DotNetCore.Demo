@@ -37,9 +37,12 @@ namespace Demo.WebService
             services.AddMvc();
             services.AddDbContext<DemoDbContext>(options =>
             {
-                options.UseSqlServer(Configuration.GetConnectionString("NothorwindDatabase"));
+                 options.UseSqlServer(Configuration.GetConnectionString("NothorwindDatabase"));
+                // options.UseSqlServer(@"Server=23.100.95.55, 1433;Initial Catalog=NORTHWND;user id=sa;password=s0937s;Persist Security Info=true;");
+
             });
             services.AddScoped<IEmployeeService, EmployeeService>();
+            services.AddScoped<ICustomersService, CustomersService>();
             // Authentication
             services.AddAuthentication(JwtBearerDefaults.AuthenticationScheme)
             .AddJwtBearer(options =>
@@ -64,20 +67,18 @@ namespace Demo.WebService
                     .AddRequirements(new MinimumMonthsEmployedRequirement(3)));
             });
 
-            var projectId = "dotnetcoredemo-208409";
-            var serviceName = "DemoWebService";
-            var version = "1.0";
+            // var projectId = Configuration["Stackdriver:ProjectId"];
+            // var serviceName = Configuration["Stackdriver:ServiceName"];
+            // var version = Configuration["Stackdriver:Version"];
 
-            var credential_path = @"D:\Working\09_Test\GCP_Application\Downloads\DotNetCoreDemo-8cea3611434b.json";
-            System.Environment.SetEnvironmentVariable("GOOGLE_APPLICATION_CREDENTIALS", credential_path);
-
-            // var value = Environment.GetEnvironmentVariable("GOOGLE_APPLICATION_CREDENTIALS");
+            // var credential_path = Configuration["Stackdriver:CredentialPath"];
+            // System.Environment.SetEnvironmentVariable("GOOGLE_APPLICATION_CREDENTIALS", credential_path);
 
             services.AddGoogleExceptionLogging(options =>
             {
-                options.ProjectId = projectId;
-                options.ServiceName = serviceName;
-                options.Version = version;
+                options.ProjectId = "dotnetcoredemo-208409"; //projectId;
+                options.ServiceName = "dotnetcoredemo-208409.appspot.com";// serviceName;
+                options.Version = "1.0";// version;
             });
 
             // Register the Swagger generator
@@ -97,17 +98,22 @@ namespace Demo.WebService
                 app.UseDeveloperExceptionPage();
             }
 
-            loggerFactory.AddLog4Net();
+            // loggerFactory.AddLog4Net();
 
             app.UseAuthentication();
 
+            #region GoogleLogging
+
             // Configure logging service.
-            loggerFactory.AddGoogle(Configuration["Stackdriver:ProjectId"]);
-            var logger = loggerFactory.CreateLogger("testStackdriverLogging");
-            // Write the log entry.
-            logger.LogInformation("Stackdriver sample started. This is a log message.");
+            loggerFactory.AddGoogle("dotnetcoredemo-208409");
+            // // Write the log entry.
+            // var logger = loggerFactory.CreateLogger("testStackdriverLogging");
+            // logger.LogInformation("Stackdriver sample started. This is a log message.");
             // Use before handling any requests to ensure all unhandled exceptions are reported.
             app.UseGoogleExceptionLogging();
+            #endregion
+
+            #region Swagger
 
             // Enable middleware to serve generated Swagger as a JSON endpoint.
             app.UseSwagger();
@@ -116,6 +122,8 @@ namespace Demo.WebService
             {
                 c.SwaggerEndpoint("/swagger/v1/swagger.json", "My API V1");
             });
+
+            #endregion
 
             app.UseMvc();
         }

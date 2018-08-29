@@ -1,19 +1,24 @@
 using System;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Http;
+using Microsoft.Extensions.Logging;
 
 namespace Demo.WebService.Core.Middlewares
 {
     public class RequestLogMiddleware
     {
         private readonly RequestDelegate _next;
-        public RequestLogMiddleware(RequestDelegate next)
-        {
+        private readonly ILogger<RequestLogMiddleware> _logger;
+        public RequestLogMiddleware (ILogger<RequestLogMiddleware> logger, RequestDelegate next) {
             _next = next;
+            _logger = logger;
         }
 
         public async Task Invoke(HttpContext context)
         {
+
+            //await context.Response.WriteAsync ("RequestLog request in.");
+            this._logger.LogInformation ("RequestLog Middle test !");
 
             Console.WriteLine("RequestLog test !");
             
@@ -27,9 +32,8 @@ namespace Demo.WebService.Core.Middlewares
 
             await _next.Invoke(context);
             // string response = GenerateResponse (context);
-
             // context.Response.ContentType = GetContentType ();
-            // await context.Response.WriteAsync (response);
+            //await context.Response.WriteAsync ("RequestLog request out.");
         }
         private string GenerateResponse(HttpContext context)
         {

@@ -25,17 +25,17 @@ namespace Demo.WebService.Controllers
 
         [AllowAnonymous]
         [HttpPost]
-        public IActionResult RequestToken([FromBody] TokenRequest request)
+        public IActionResult Post([FromBody] TokenRequest request)
         {
             if (request.Username == "test" && request.Password == "test")
             {
                 var claims = new[]
                 {
-                    new Claim(ClaimTypes.Name, request.Username),
-                    new Claim("CompletedBasicTraining", ""),
-                    new Claim(CustomClaimTypes.EmploymentCommenced,
-                                new DateTime(2018,12,1).ToString(),
-                                ClaimValueTypes.DateTime)
+                    new Claim(JwtRegisteredClaimNames.NameId, "vulcan.lee@vulcan.net"),
+                    new Claim(ClaimTypes.Role, "Admin")
+                    // new Claim(ClaimTypes.Name, request.Username),
+                    // new Claim("CompletedBasicTraining", ""),
+                    // new Claim(CustomClaimTypes.EmploymentCommenced,new DateTime(2018,12,1).ToString(), ClaimValueTypes.DateTime)                    
                 };
 
                 var key = new SymmetricSecurityKey(Encoding.UTF8.GetBytes(_configuration["SecurityKey"]));
@@ -45,8 +45,9 @@ namespace Demo.WebService.Controllers
                     issuer: "yourdomain.com",
                     audience: "yourdomain.com",
                     claims: claims,
-                    expires: DateTime.Now.AddMinutes(30),
-                    signingCredentials: creds);
+                    expires: DateTime.Now.AddMinutes(1),
+                    signingCredentials: creds
+                );
 
                 return Ok(new
                 {

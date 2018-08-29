@@ -12,6 +12,7 @@ using Google.Cloud.Diagnostics.AspNetCore;
 using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
+using Microsoft.AspNetCore.Http.Features;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
@@ -50,6 +51,19 @@ namespace Demo.WebService {
                     ValidIssuer = "yourdomain.com",
                     ValidAudience = "yourdomain.com",
                     IssuerSigningKey = new SymmetricSecurityKey (Encoding.UTF8.GetBytes (Configuration["SecurityKey"]))
+                    };
+                    options.Events = new JwtBearerEvents () {
+                        OnAuthenticationFailed = context => {
+                                context.NoResult ();
+                                context.Response.StatusCode = 401;
+                                context.Response.HttpContext.Features.Get<IHttpResponseFeature> ().ReasonPhrase = context.Exception.Message;
+                                // Debug.WriteLine ("OnAuthenticationFailed: " + context.Exception.Message);
+                                return Task.CompletedTask;
+                            },
+                            OnTokenValidated = context => {
+                                Console.WriteLine ("OnTokenValidated: " + context.SecurityToken);
+                                return Task.CompletedTask;
+                            }
                     };
                 });
 

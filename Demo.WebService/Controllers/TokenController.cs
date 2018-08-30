@@ -31,7 +31,7 @@ namespace Demo.WebService.Controllers
             {
                 var claims = new[]
                 {
-                    new Claim(JwtRegisteredClaimNames.NameId, "vulcan.lee@vulcan.net"),
+                    new Claim(JwtRegisteredClaimNames.NameId, ($"{request.Username}ID")), // "vulcan.lee@vulcan.net"
                     new Claim(ClaimTypes.Role, "Admin")
                     // new Claim(ClaimTypes.Name, request.Username),
                     // new Claim("CompletedBasicTraining", ""),

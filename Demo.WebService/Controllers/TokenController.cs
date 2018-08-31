@@ -32,10 +32,10 @@ namespace Demo.WebService.Controllers
                 var claims = new[]
                 {
                     new Claim(JwtRegisteredClaimNames.NameId, ($"{request.Username}ID")), // "vulcan.lee@vulcan.net"
-                    new Claim(ClaimTypes.Role, "Admin")
+                    new Claim(ClaimTypes.Role, "Admin"),
                     // new Claim(ClaimTypes.Name, request.Username),
-                    // new Claim("CompletedBasicTraining", ""),
-                    // new Claim(CustomClaimTypes.EmploymentCommenced,new DateTime(2018,12,1).ToString(), ClaimValueTypes.DateTime)                    
+                    new Claim("CompletedBasicTraining", ""),
+                    //new Claim(CustomClaimTypes.EmploymentCommenced,new DateTime(2018,12,1).ToString(), ClaimValueTypes.DateTime)                    
                 };
 
                 var key = new SymmetricSecurityKey(Encoding.UTF8.GetBytes(_configuration["SecurityKey"]));

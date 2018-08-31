@@ -70,8 +70,8 @@ namespace Demo.WebService {
             services.AddAuthorization (options => {
                 options.AddPolicy ("TrainedStaffOnly",
                     policy => policy
-                    .RequireClaim ("CompletedBasicTraining")
-                    .AddRequirements (new MinimumMonthsEmployedRequirement (3)));
+                    .RequireClaim ("CompletedBasicTraining"));
+                    //.AddRequirements (new MinimumMonthsEmployedRequirement (3)));
             });
 
             // var projectId = Configuration["Stackdriver:ProjectId"];

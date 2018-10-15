@@ -1,6 +1,6 @@
 runtime: aspnetcore
 env: flex
 endpoints_api_service:
-  name: "dotnetcoredemo-208409.appspot.com"
-  config_id: "2018-08-14r0"
+  name: "dotnetcoredemo-217516.appspot.com"
+  config_id: "2018-10-15r0"
   rollout_strategy: fixed

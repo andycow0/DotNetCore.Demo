@@ -1,5 +1,5 @@
 ﻿{
   "ConnectionStrings": {
-    "NothorwindDatabase": "Server=localhost;Initial Catalog=NORTHWND;user id=sa;password=s0937s;Persist Security Info=true;"
+    "NothorwindDatabase": "Server=localhost\\SQLEXPRESS;Initial Catalog=NORTHWND;user id=sa;password=s0937s;Persist Security Info=true;"
   }
 }

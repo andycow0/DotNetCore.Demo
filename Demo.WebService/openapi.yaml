@@ -2,7 +2,7 @@ swagger: '2.0'
 info:
   version: v1
   title: My API
-host: dotnetcoredemo-208409.appspot.com
+host: dotnetcoredemo-217516.appspot.com
 paths:
   /api/Customers:
     get:

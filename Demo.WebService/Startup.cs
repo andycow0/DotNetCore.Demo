@@ -34,8 +34,8 @@ namespace Demo.WebService {
         public void ConfigureServices (IServiceCollection services) {
             services.AddMvc ();
             services.AddDbContext<DemoDbContext> (options => {
-                options.UseSqlServer (Configuration.GetConnectionString ("NothorwindDatabase"));
-                // options.UseSqlServer(@"Server=23.100.95.55, 1433;Initial Catalog=NORTHWND;user id=sa;password=s0937s;Persist Security Info=true;");
+                //options.UseSqlServer (Configuration.GetConnectionString ("NothorwindDatabase"));
+                options.UseSqlServer (@"Server=23.100.95.55, 1433;Initial Catalog=NORTHWND;user id=sa;password=s0937s;Persist Security Info=true;");
 
             });
             services.AddScoped<IEmployeeService, EmployeeService> ();
@@ -71,7 +71,7 @@ namespace Demo.WebService {
                 options.AddPolicy ("TrainedStaffOnly",
                     policy => policy
                     .RequireClaim ("CompletedBasicTraining"));
-                    //.AddRequirements (new MinimumMonthsEmployedRequirement (3)));
+                //.AddRequirements (new MinimumMonthsEmployedRequirement (3)));
             });
 
             // var projectId = Configuration["Stackdriver:ProjectId"];
@@ -82,8 +82,8 @@ namespace Demo.WebService {
             // System.Environment.SetEnvironmentVariable("GOOGLE_APPLICATION_CREDENTIALS", credential_path);
 
             services.AddGoogleExceptionLogging (options => {
-                options.ProjectId = "dotnetcoredemo-208409"; //projectId;
-                options.ServiceName = "dotnetcoredemo-208409.appspot.com"; // serviceName;
+                options.ProjectId = "dotnetcoredemo-217516"; //projectId;
+                options.ServiceName = "dotnetcoredemo-217516.appspot.com"; // serviceName;
                 options.Version = "1.0"; // version;
             });
 
@@ -108,7 +108,7 @@ namespace Demo.WebService {
             #region GoogleLogging
 
             // Configure logging service.
-            loggerFactory.AddGoogle ("dotnetcoredemo-208409");
+            loggerFactory.AddGoogle ("dotnetcoredemo-217516");
             // // Write the log entry.
             // var logger = loggerFactory.CreateLogger("testStackdriverLogging");
             // logger.LogInformation("Stackdriver sample started. This is a log message.");

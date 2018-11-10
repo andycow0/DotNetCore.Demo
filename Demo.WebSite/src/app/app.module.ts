@@ -5,7 +5,7 @@ import { RouterModule, Routes } from '@angular/router';
 import { AppComponent } from './app.component';
 import { HomeComponent } from './home/home.component';
 
-import { MatButtonModule } from '@angular/material'
+import { MatButtonModule, MatIconModule } from '@angular/material'
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 // import { AppRoutingModule } from './/app-routing.module'
 
@@ -24,6 +24,7 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
     // RouterModule.forRoot(routes),
     BrowserAnimationsModule,
     MatButtonModule,
+    MatIconModule,
     // AppRoutingModule
   ],
   exports: [RouterModule],

@@ -4,28 +4,31 @@ import { RouterModule, Routes } from '@angular/router';
 
 import { AppComponent } from './app.component';
 import { HomeComponent } from './home/home.component';
+import { ListEmployeesComponent } from './order/list-employees.component'
 
 import { MatButtonModule, MatIconModule } from '@angular/material'
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-// import { AppRoutingModule } from './/app-routing.module'
+//import { AppRoutingModule } from './/app-routing.module';
 
-// const routes: Routes = [
-//   { path: 'home/about', component: HomeComponent }
-// ];
+const routes: Routes = [
+  { path: 'home', component: HomeComponent },
+  { path: 'order/list', component: ListEmployeesComponent }
+];
 
 
 @NgModule({
   declarations: [
     AppComponent,
-    HomeComponent
+    HomeComponent,
+    ListEmployeesComponent
   ],
   imports: [
     BrowserModule,
-    // RouterModule.forRoot(routes),
+    RouterModule.forRoot(routes),
     BrowserAnimationsModule,
     MatButtonModule,
     MatIconModule,
-    // AppRoutingModule
+    //AppRoutingModule
   ],
   exports: [RouterModule],
   providers: [],

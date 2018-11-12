@@ -7,7 +7,9 @@
     "build": "ng build",
     "test": "ng test",
     "lint": "ng lint",
-    "e2e": "ng e2e"
+    "e2e": "ng e2e",    
+    "proxy": "ng serve --proxy-config proxy.conf.json",
+    "json-server": "json-server ./json-server/db.json --routes ./json-server/routes.json"
   },
   "private": true,
   "dependencies": {
@@ -16,7 +18,7 @@
     "@angular/common": "^6.0.3",
     "@angular/compiler": "^6.0.3",
     "@angular/core": "^6.0.3",
-    "@angular/forms": "^6.0.3",
+    "@angular/forms": "^7.0.3",
     "@angular/http": "^6.0.3",
     "@angular/material": "^6.4.1",
     "@angular/platform-browser": "^6.0.3",

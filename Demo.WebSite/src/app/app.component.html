@@ -19,6 +19,12 @@
 </ul> -->
 <!-- <app-home></app-home> -->
 
+<ul>
+  <li *ngFor="let post of posts">
+    {{ post.id}} {{post.title}} {{post.author}}
+  </li>
+</ul>
+
 <a routerLink="/home">Home</a>
 <a routerLink="/order/list">Order list!</a>
 <router-outlet></router-outlet>

@@ -9,6 +9,11 @@ import { ListEmployeesComponent } from './order/list-employees.component';
 import { MatButtonModule, MatIconModule } from '@angular/material'
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { AppRoutingModule } from './/app-routing.module';
+import { HttpClientModule } from '@angular/common/http';
+
+import { IPostService } from "./post/ipost.interface";
+import { PostService } from "./post/post.service";
+import { FormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [
@@ -21,10 +26,14 @@ import { AppRoutingModule } from './/app-routing.module';
     BrowserAnimationsModule,
     MatButtonModule,
     MatIconModule,
-    AppRoutingModule
+    AppRoutingModule,
+    HttpClientModule,
+    FormsModule
   ],
   exports: [],
-  providers: [],
+  providers: [
+    { provide: IPostService, useClass: PostService }
+  ],
   bootstrap: [AppComponent]
   // entryComponents: [AppComponent]
 })

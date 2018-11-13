@@ -19,12 +19,24 @@
 </ul> -->
 <!-- <app-home></app-home> -->
 
-<ul>
+<!-- <ul>
   <li *ngFor="let post of posts">
     {{ post.id}} {{post.title}} {{post.author}}
   </li>
-</ul>
-
-<a routerLink="/home">Home</a>
-<a routerLink="/order/list">Order list!</a>
+</ul> -->
+<div class="Container">
+  <nav class="navbar navbar-default">
+    <ul class="nav navbar-nav">
+      <li>
+        <a routerLink="/home">Home</a>
+      </li>
+      <li>
+        <a routerLink="/order/list">Order list!</a>
+      </li>
+      <li>
+        <a routerLink="/post/list">Order list!</a>
+      </li>
+    </ul>
+  </nav>
+</div>
 <router-outlet></router-outlet>

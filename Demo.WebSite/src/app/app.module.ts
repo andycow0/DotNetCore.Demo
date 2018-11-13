@@ -14,12 +14,14 @@ import { HttpClientModule } from '@angular/common/http';
 import { IPostService } from "./post/ipost.interface";
 import { PostService } from "./post/post.service";
 import { FormsModule } from '@angular/forms';
+import { ListPostComponent } from './post/list-post/list-post.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     HomeComponent,
-    ListEmployeesComponent
+    ListEmployeesComponent,
+    ListPostComponent
   ],
   imports: [
     BrowserModule,

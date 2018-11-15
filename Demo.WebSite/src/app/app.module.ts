@@ -4,8 +4,6 @@ import { BrowserModule } from '@angular/platform-browser';
 
 import { AppComponent } from './app.component';
 import { HomeComponent } from './home/home.component';
-import { ListEmployeesComponent } from './order/list-employees.component';
-
 import { MatButtonModule, MatIconModule } from '@angular/material'
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { AppRoutingModule } from './/app-routing.module';
@@ -15,13 +13,18 @@ import { IPostService } from "./post/ipost.interface";
 import { PostService } from "./post/post.service";
 import { FormsModule } from '@angular/forms';
 import { ListPostComponent } from './post/list-post/list-post.component';
+import { ListOrderComponent } from './order/list-order/list-order.component';
+import { ListCustomerComponent } from './customer/list-customer/list-customer.component';
+import { ICustomerService } from './customer/icustomer.interface';
+import { CustomerService } from './customer/customer.service';
 
 @NgModule({
   declarations: [
     AppComponent,
     HomeComponent,
-    ListEmployeesComponent,
-    ListPostComponent
+    ListPostComponent,
+    ListOrderComponent,
+    ListCustomerComponent
   ],
   imports: [
     BrowserModule,
@@ -34,7 +37,8 @@ import { ListPostComponent } from './post/list-post/list-post.component';
   ],
   exports: [],
   providers: [
-    { provide: IPostService, useClass: PostService }
+    { provide: IPostService, useClass: PostService },
+    { provide: ICustomerService, useClass: CustomerService }
   ],
   bootstrap: [AppComponent]
   // entryComponents: [AppComponent]

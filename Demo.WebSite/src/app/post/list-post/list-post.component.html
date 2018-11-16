@@ -1,8 +1,23 @@
 <p>
   list-post works!
 </p>
-<ul>
-  <li *ngFor="let post of posts">
-    {{ post.id}} {{post.title}} {{post.author}}
-  </li>
-</ul>
+<div class="container">
+  <table class="table">
+    <thead class="thead-light">
+      <tr>
+        <th>ID</th>
+        <th>Title</th>
+        <th>Author</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let post of posts">
+        <td>{{post.id}}</td>
+        <td>{{post.title}}</td>
+        <td>{{post.author}}</td>
+      </tr>
+      <tr>
+
+    </tbody>
+  </table>
+</div>

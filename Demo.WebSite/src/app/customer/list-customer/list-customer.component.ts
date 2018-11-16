@@ -18,6 +18,7 @@ export class ListCustomerComponent implements OnInit {
   }
 
   private getAllCustomers() {
+    console.log('getAllCustomers() GET start!')
     this.customerService.getAllCustomers()
       .subscribe(
         value => this.customers = value,

@@ -1,5 +1,6 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
+import { NgbModule } from "@ng-bootstrap/ng-bootstrap";
 // import { RouterModule, Routes } from '@angular/router';
 
 import { AppComponent } from './app.component';
@@ -17,6 +18,7 @@ import { ListOrderComponent } from './order/list-order/list-order.component';
 import { ListCustomerComponent } from './customer/list-customer/list-customer.component';
 import { ICustomerService } from './customer/icustomer.interface';
 import { CustomerService } from './customer/customer.service';
+import { importType } from '@angular/compiler/src/output/output_ast';
 
 @NgModule({
   declarations: [
@@ -27,6 +29,7 @@ import { CustomerService } from './customer/customer.service';
     ListCustomerComponent
   ],
   imports: [
+    NgbModule.forRoot(),
     BrowserModule,
     BrowserAnimationsModule,
     MatButtonModule,

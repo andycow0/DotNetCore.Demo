@@ -1,6 +1,12 @@
 <p>
   list-post works!
 </p>
+<div>
+  <label>Find by ID</label>
+  <input type="text" name="postId" [(ngModel)]="postId" />
+  <input type="button" (click)="find()" value="Find" />
+  <input type="text" name="title" [(ngModel)]="post.title" />
+</div>
 <div class="container">
   <table class="table">
     <thead class="thead-light">

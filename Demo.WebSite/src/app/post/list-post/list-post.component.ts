@@ -11,14 +11,25 @@ export class ListPostComponent implements OnInit {
   ngOnInit(): void {
     this.getAllPosts();
   }
+  post: Post;
   posts: Post[];
+  postId: number;
   constructor(private postService: IPostService) {
   }
+
+  find(): void {
+    if (Number(this.postId) > 0) {
+      console.log('starting find postId:' + this.postId.toString());
+      this.postService.find(this.postId, this.post);
+      // console.log(this.postService.post.title);
+    }
+  }
+
   private getAllPosts() {
     console.log("post service !");
     this.postService.getAllPosts()
       .subscribe(
-        value => this.posts = value, 
+        value => this.posts = value,
         error => console.log(error),
         () => console.log('GET completed')
       );

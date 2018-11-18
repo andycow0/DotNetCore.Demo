@@ -10,8 +10,8 @@ import { ICustomerService } from '../icustomer.interface';
 export class ListCustomerComponent implements OnInit {
 
   ngOnInit(): void {
-    // this.getAllCustomers();
-    this.getAllString();
+    this.getAllCustomers();
+    //this.getAllString();
   }
 
   customers: Customer[];

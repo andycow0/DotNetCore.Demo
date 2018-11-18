@@ -18,6 +18,8 @@ export class CustomerService implements ICustomerService {
 
   getAllCustomers(): Observable<Customer[]> {
     console.log('getAllCustomers() GET starting!')
-    return this.httpClient.get<Customer[]>('https://dotnetcoredemo-217516.appspot.com/api/Customers')
+    // return this.httpClient.get<Customer[]>('https://dotnetcoredemo-217516.appspot.com/api/Customers');
+    
+    return this.httpClient.get<Customer[]>('http://localhost:5000/api/Customers/GetAllCustomers');
   }
 }

@@ -2,10 +2,32 @@
   list-customer works!
 </p>
 <ul>
-  <li *ngFor="let value of values">
+  <!-- <li *ngFor="let value of values">
     {{ value }}
   </li>
   <li *ngFor="let customer of customers">
     {{ customer.customerID}} {{customer.companyName}} {{customer.contactName}}
-  </li>
+  </li> -->
+  <div class="container">
+    <table class="table">
+      <thead class="thead-light">
+        <tr>
+          <th>ID</th>
+          <th>CompanyName</th>
+          <th>ContactName</th>
+          <!-- <th></th> -->
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let customer of customers">
+          <td>{{customer.customerId}}</td>
+          <td>{{customer.companyName}}</td>
+          <td>{{customer.contactName}}</td>
+          <!-- <td (click)="onSelect(post)">click</td> -->
+        </tr>
+        <tr>
+  
+      </tbody>
+    </table>
+  </div>
 </ul>

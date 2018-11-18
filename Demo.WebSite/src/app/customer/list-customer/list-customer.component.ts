@@ -10,10 +10,13 @@ import { ICustomerService } from '../icustomer.interface';
 export class ListCustomerComponent implements OnInit {
 
   ngOnInit(): void {
-    this.getAllCustomers();
+    // this.getAllCustomers();
+    this.getAllString();
   }
 
   customers: Customer[];
+  values: string[];
+
   constructor(private customerService: ICustomerService) {
   }
 
@@ -25,6 +28,20 @@ export class ListCustomerComponent implements OnInit {
         error => console.log(error),
         () => console.log('getAllCustomers() GET completed!')
       );
+  }
+
+  private getAllString() {
+    console.log('getAllString() GET start!')
+    this.customerService.getAllString()
+      .subscribe(
+        (response) => {
+          let result = response;
+          console.log(result.length);
+          if (result.length > 0)
+            this.values = result;
+        }
+      );
+
   }
 
 }

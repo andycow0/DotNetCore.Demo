@@ -9,7 +9,11 @@ import { Customer } from '../model/customer.model';
 })
 
 export class CustomerService implements ICustomerService {
-  
+  getAllString(): Observable<string[]> {
+    console.log('getAllCustomers() GET starting!')
+    return this.httpClient.get<string[]>('http://localhost:5000/api/Customers')
+  }
+
   constructor(private httpClient: HttpClient) { }
 
   getAllCustomers(): Observable<Customer[]> {

@@ -10,18 +10,32 @@ import { IPostService } from '../ipost.interface';
 export class ListPostComponent implements OnInit {
   ngOnInit(): void {
     this.getAllPosts();
+    this.post = { id: 0, title: '', author: '' };
   }
   post: Post;
   posts: Post[];
   postId: number;
+
   constructor(private postService: IPostService) {
   }
 
   find(): void {
     if (Number(this.postId) > 0) {
       console.log('starting find postId:' + this.postId.toString());
-      this.postService.find(this.postId, this.post);
-      // console.log(this.postService.post.title);
+      // this.postService.find(this.postId, this.post);
+      this.postService.getAllPosts()
+        .subscribe(
+          (response) => {
+            let result = response;
+            console.log(result.length);
+            if (result.length > 0)
+              this.posts = result.filter(p => p.id == this.postId);
+            else
+              this.posts = result;
+            this.post = result[this.postId - 1];
+            // console.log(this.post.title);
+          }
+        );
     }
   }
 

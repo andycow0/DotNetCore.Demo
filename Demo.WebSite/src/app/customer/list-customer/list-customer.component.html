@@ -1,21 +1,18 @@
-<p>
-  list-customer works!
-</p>
-<ul>
-  <!-- <li *ngFor="let value of values">
+<div class="container">
+  <h1>Customer</h1>
+    <!-- <li *ngFor="let value of values">
     {{ value }}
   </li>
   <li *ngFor="let customer of customers">
     {{ customer.customerID}} {{customer.companyName}} {{customer.contactName}}
   </li> -->
-  <div class="container">
     <table class="table">
       <thead class="thead-light">
         <tr>
           <th>ID</th>
           <th>CompanyName</th>
           <th>ContactName</th>
-          <!-- <th></th> -->
+          <th></th>
         </tr>
       </thead>
       <tbody>
@@ -23,11 +20,12 @@
           <td>{{customer.customerId}}</td>
           <td>{{customer.companyName}}</td>
           <td>{{customer.contactName}}</td>
-          <!-- <td (click)="onSelect(post)">click</td> -->
+          <td>
+            <input type="button" (click)="delete(200)" value="Delete" />
+          </td>
         </tr>
         <tr>
-  
+
       </tbody>
     </table>
-  </div>
-</ul>
+</div>

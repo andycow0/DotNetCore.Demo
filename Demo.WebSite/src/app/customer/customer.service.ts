@@ -9,17 +9,19 @@ import { Customer } from '../model/customer.model';
 })
 
 export class CustomerService implements ICustomerService {
-  getAllString(): Observable<string[]> {
-    console.log('getAllCustomers() GET starting!')
-    return this.httpClient.get<string[]>('http://localhost:5000/api/Customers')
-  }
 
   constructor(private httpClient: HttpClient) { }
+
+  delete(customerId: string): void {
+    console.log('CustomerService delete Customer start!');
+    
+    this.httpClient.delete('http://localhost:5000/api/Customers/' + customerId);
+  }
 
   getAllCustomers(): Observable<Customer[]> {
     console.log('getAllCustomers() GET starting!')
     // return this.httpClient.get<Customer[]>('https://dotnetcoredemo-217516.appspot.com/api/Customers');
-    
+
     return this.httpClient.get<Customer[]>('http://localhost:5000/api/Customers/GetAllCustomers');
   }
 }

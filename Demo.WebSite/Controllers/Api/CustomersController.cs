@@ -21,16 +21,34 @@ namespace Demo.WebSite.Controllers.Api {
             };
         }
 
-        [HttpGet("GetAllCustomers")]
+        [HttpGet ("GetAllCustomers")]
         public async Task<IEnumerable<Customer>> GetAllCustomersAsync () {
             IEnumerable<Customer> customers = null;
-            HttpResponseMessage response = await client.GetAsync ("https://dotnetcoredemo-217516.appspot.com/api/Customers");
+            var response = await client.GetAsync ("https://dotnetcoredemo-217516.appspot.com/api/Customers");
             if (response.IsSuccessStatusCode) {
                 customers = await response.Content.ReadAsAsync<List<Customer>> ();
             } else {
                 customers = new List<Customer> ();
             }
             return customers;
+        }
+
+        [HttpDelete ("{id}")]
+        public ResultModel Delete (string id) {
+
+            var result = new ResultModel ();
+
+            var request = client.DeleteAsync ("https://dotnetcoredemo-217516.appspot.com/api/Customers/" + id);
+
+            var response = request.Result;
+
+            if (response.IsSuccessStatusCode) {
+                result.IsSuccess = true;
+            } else {
+                result.Message = response.IsSuccessStatusCode.ToString ();
+            }
+
+            return result;
         }
     }
 

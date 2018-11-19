@@ -1,29 +1,27 @@
-<p>
-  list-post works!
-</p>
-<div>
-  <label>Find by ID</label>
-  <input type="text" name="postId" [(ngModel)]="postId" />
-  <input type="button" (click)="find()" value="Find" />
-</div>
-
-<div *ngIf="post.id > 0">
+<div class="container">
+  <h1>Post</h1>
   <div>
+    <label>Find by ID</label>
+    <input type="text" name="postId" [(ngModel)]="postId" />
+    <input type="button" (click)="find()" value="Find" />
+  </div>
+
+  <div *ngIf="post.id > 0">
     <div>
-      <label>ID {{post.id}}</label>
-    </div>
-    <div>
-      <label>Title</label>
-      <input type="text" name="title" [(ngModel)]="post.title" />
-    </div>
-    <div>
-      <label>Author</label>
-      <input type="text" name="Author" [(ngModel)]="post.author" />
+      <div>
+        <label>ID {{post.id}}</label>
+      </div>
+      <div>
+        <label>Title</label>
+        <input type="text" name="title" [(ngModel)]="post.title" />
+      </div>
+      <div>
+        <label>Author</label>
+        <input type="text" name="Author" [(ngModel)]="post.author" />
+      </div>
     </div>
   </div>
-</div>
 
-<div class="container">
   <table class="table">
     <thead class="thead-light">
       <tr>

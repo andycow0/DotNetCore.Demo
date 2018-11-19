@@ -21,7 +21,9 @@ export class ListCustomerComponent implements OnInit {
   }
 
   private getAllCustomers() {
-    console.log('getAllCustomers() GET start!')
+
+    console.log('getAllCustomers() GET start!');
+
     this.customerService.getAllCustomers()
       .subscribe(
         value => this.customers = value,
@@ -30,18 +32,10 @@ export class ListCustomerComponent implements OnInit {
       );
   }
 
-  private getAllString() {
-    console.log('getAllString() GET start!')
-    this.customerService.getAllString()
-      .subscribe(
-        (response) => {
-          let result = response;
-          console.log(result.length);
-          if (result.length > 0)
-            this.values = result;
-        }
-      );
+  delete(customerId: string) {
 
+    console.log('delete Customer start!');
+
+    this.customerService.delete(customerId);
   }
-
 }

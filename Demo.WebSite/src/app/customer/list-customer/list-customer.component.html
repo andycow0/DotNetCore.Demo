@@ -1,7 +1,7 @@
 <div class="container">
   <h1>Customer</h1>
   <div>
-    <label>Find by ID</label>
+    <label>Find by CompanyName</label>
     <input type="text" name="customerId" [(ngModel)]="customerId" />
     <input type="button" (click)="find()" value="Find" />
   </div>
@@ -12,11 +12,11 @@
         <label>ID {{customer.customerId}}</label>
       </div>
       <div>
-        <label>Title</label>
+        <label>CompanyName</label>
         <input type="text" name="CompanyName" [(ngModel)]="customer.companyName" />
       </div>
       <div>
-        <label>Author</label>
+        <label>Address</label>
         <input type="text" name="Address" [(ngModel)]="customer.address" />
       </div>
     </div>

@@ -38,7 +38,7 @@ export class ListCustomerComponent implements OnInit {
   }
 
   find(): void {
-    if (Number(this.customerId) > 0 || !this.isEmpty(this.customerId)) {
+    if (!this.isEmpty(this.customerId)) {
       console.log('starting find customerId:' + this.customerId.toString());
       // this.postService.find(this.postId, this.post);
       this.customerService.getAllCustomers()
@@ -50,7 +50,7 @@ export class ListCustomerComponent implements OnInit {
             var id = this.pad(this.customerId, 5);
             console.log(id);
             if (result.length > 0)
-              this.customers = result.filter(p => p.customerId == id);
+              this.customers = result.filter(p => p.companyName == id);
             else
               this.customers = result;
             console.log(this.customers.length);

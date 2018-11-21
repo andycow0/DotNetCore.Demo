@@ -1,31 +1,46 @@
 <div class="container">
   <h1>Customer</h1>
-    <!-- <li *ngFor="let value of values">
-    {{ value }}
-  </li>
-  <li *ngFor="let customer of customers">
-    {{ customer.customerID}} {{customer.companyName}} {{customer.contactName}}
-  </li> -->
-    <table class="table">
-      <thead class="thead-light">
-        <tr>
-          <th>ID</th>
-          <th>CompanyName</th>
-          <th>ContactName</th>
-          <th></th>
-        </tr>
-      </thead>
-      <tbody>
-        <tr *ngFor="let customer of customers">
-          <td>{{customer.customerId}}</td>
-          <td>{{customer.companyName}}</td>
-          <td>{{customer.contactName}}</td>
-          <td>
-            <input type="button" (click)="delete(200)" value="Delete" />
-          </td>
-        </tr>
-        <tr>
+  <div>
+    <label>Find by ID</label>
+    <input type="text" name="customerId" [(ngModel)]="customerId" />
+    <input type="button" (click)="find()" value="Find" />
+  </div>
 
-      </tbody>
-    </table>
+  <div *ngIf="show">
+    <div>
+      <div>
+        <label>ID {{customer.customerId}}</label>
+      </div>
+      <div>
+        <label>Title</label>
+        <input type="text" name="CompanyName" [(ngModel)]="customer.companyName" />
+      </div>
+      <div>
+        <label>Author</label>
+        <input type="text" name="Address" [(ngModel)]="customer.address" />
+      </div>
+    </div>
+  </div>
+  <table class="table">
+    <thead class="thead-light">
+      <tr>
+        <th>ID</th>
+        <th>CompanyName</th>
+        <th>ContactName</th>
+        <th></th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let customer of customers">
+        <td>{{customer.customerId}}</td>
+        <td>{{customer.companyName}}</td>
+        <td>{{customer.contactName}}</td>
+        <td>
+          <input type="button" (click)="delete(200)" value="Delete" />
+        </td>
+      </tr>
+      <tr>
+
+    </tbody>
+  </table>
 </div>

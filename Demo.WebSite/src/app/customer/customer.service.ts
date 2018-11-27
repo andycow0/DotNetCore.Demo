@@ -16,10 +16,9 @@ export class CustomerService implements ICustomerService {
   delete(customerId: string): void {
     console.log('CustomerService delete Customer start!');
 
-    this.httpClient.delete('http://localhost:5000/api/Customers/9000').pipe(
-      tap(_ => console.log('deleted Customer id:.')),
-      catchError(this.handleError<any>('delete Customer'))
-    );;
+    this.httpClient.delete<Customer[]>('http://localhost:5000/api/Customers/${customerId}').subscribe((data) => {
+      console.log("success");
+    });
   }
 
   getAllCustomers(): Observable<Customer[]> {
